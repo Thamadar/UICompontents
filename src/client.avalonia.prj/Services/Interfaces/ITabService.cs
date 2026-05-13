@@ -14,7 +14,7 @@ namespace Client.Avalonia.Services.Interfaces
         /// <summary> 
         /// Подключение к списку всех вкладок.
         /// </summary> 
-        IObservable<IChangeSet<ITabMenu>> ConnectToTotalTabMenu();
+        IObservable<IChangeSet<TabMenu>> ConnectToTotalTabMenu();
 
         /// <summary> 
         /// Подключение к списку текущих горячих клавиш VM-вкладки.
@@ -25,6 +25,8 @@ namespace Client.Avalonia.Services.Interfaces
         /// Отслеживание текущей выбранной VM-вкладки.
         /// </summary>
         IObservable<ITabVM?> CurrentSelectedTabVMObservable { get; }
+
+        IEnumerable<IHotKey> GetCurrentTabVMHotKeys();
 
         /// <summary>
         /// Получить текущую выделенную VM-вкладку.
@@ -37,8 +39,8 @@ namespace Client.Avalonia.Services.Interfaces
         void LoadTotalTabMenuData();  
 
         /// <summary>
-        /// Выбрать влкадку по ID.
+        /// Выбрать влкадку.
         /// </summary> 
-        Task SelectTabMenuById(Guid? guid);
+        Task SelectTabMenu(TabCategoryEnum tabCategoryEnum);
     }
 }

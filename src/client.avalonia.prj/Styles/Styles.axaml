@@ -12,6 +12,8 @@
                   <ResourceInclude
                 Source="avares://client.avalonia/Styles/Colors.axaml" />
                 
+                  <ResourceInclude
+                Source="avares://client.avalonia/Resources/Icons.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources> 
@@ -19,4 +21,7 @@
     <FluentTheme />
     <StyleInclude
             Source="avares://lib.avalonia/Styles/Styles.axaml" />
+
+    <StyleInclude
+            Source="avares://client.avalonia/Styles/RadioButton.axaml" />
 </Styles>

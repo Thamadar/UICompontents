@@ -19,6 +19,7 @@
     HorizontalAlignment="Center"
     VerticalAlignment="Center"
     FontSize="25"
+    Foreground="Purple"
     Text="В разработке..."/>
 
 </UserControl>
