@@ -11,6 +11,7 @@
         x:Class="Client.Avalonia.MainWindowView"
         Focusable="True"
         Background="White"
+        WindowState="Maximized"
         Title="UIComponents">
 
     <Design.DataContext>
@@ -21,6 +22,31 @@
         <uibehaviors:AddWindowHotKeysBehavior HotKeys="{Binding HotKeys}"/>
     </i:Interaction.Behaviors>
     
-    <!-- TO DO:Вкладки разных областей. Например: Geometry, Graphs, ...-->
-    <views:GeometryView DataContext="{Binding GeometryViewModel}"/>
+    <Grid 
+    ColumnDefinitions="auto,*">
+        <ItemsControl
+        Grid.Column="0"
+        Background="{StaticResource PrimaryBlue}"
+        ItemsSource="{Binding TotalTabMenu}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel> 
+            <ItemsControl.DataTemplates>
+                <DataTemplate 
+                    x:DataType="views:ITabMenu">
+                    <RadioButton  
+                    IsChecked="{Binding IsSelected}"
+                    Content="{Binding DisplayName}"
+                    Classes="tab"
+                    GroupName="Tabs"/>
+                </DataTemplate>
+            </ItemsControl.DataTemplates>
+        </ItemsControl>  
+
+        <ContentControl
+        Grid.Column="1"
+        Content="{Binding CurrentTabVM}"/>
+    </Grid> 
 </Window>

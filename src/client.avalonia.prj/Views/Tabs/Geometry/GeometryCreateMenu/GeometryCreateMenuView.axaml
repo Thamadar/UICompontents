@@ -14,44 +14,22 @@
 
     <Design.DataContext>
         <local:GeometryCreateMenuViewModel />
-    </Design.DataContext>
-
-    <UserControl.Resources>
-     
-    <ControlTemplate x:Key="ShapeCreateRect">
-        <local:RectMenuEditView />
-    </ControlTemplate>
-
-    <ControlTemplate x:Key="ShapeCreateCircle">
-        <local:CircleMenuEditView />
-    </ControlTemplate>
-
-    <uiconv:SwitchConverter
-    x:Key="ShapeEditMenuConverter">
-        <uiconv:Case
-        Key = "{x:Static local:ShapeCreateEnum.Rect}"
-        Value="{StaticResource ShapeCreateRect}"/>
-        <uiconv:Case
-        Key = "{x:Static local:ShapeCreateEnum.Circle}"
-        Value="{StaticResource ShapeCreateCircle}"/>
-    </uiconv:SwitchConverter> 
-
-    </UserControl.Resources>
+    </Design.DataContext> 
 
     <Grid 
-    RowDefinitions="auto,*">
+    RowDefinitions="auto,*"> 
 
-    <Grid
-        Grid.Row="0" > 
-        <StackPanel 
-        Margin="8,0"
-        Orientation="Horizontal"
-        Height="32"
-        Spacing="4">
+        <Grid
+        Grid.Row="0"
+        Background="{StaticResource PrimaryBlue}"> 
+            <StackPanel 
+            Margin="8,4,8,0"
+            Orientation="Horizontal" 
+            Spacing="4">
 
-        <!-- TO DO: впихнуть иконки. -->
+           <!-- TO DO: впихнуть иконки. -->
             <RadioButton
-            Classes="default"
+            Classes="default menu"
             Content="Прямоугольник"
             IsChecked="{Binding SelectedShapeCreate,
             Converter={x:Static uiconv:EnumToBooleanConverter.Instance},
@@ -59,20 +37,23 @@
             Mode=TwoWay}"
             GroupName="Shapes"/>
             <RadioButton
-            Classes="default"
+            Classes="default menu"
             Content="Окружность"
             IsChecked="{Binding SelectedShapeCreate,
             Converter={x:Static uiconv:EnumToBooleanConverter.Instance},
             ConverterParameter={x:Static local:ShapeCreateEnum.Circle},
             Mode=TwoWay}"
             GroupName="Shapes"/>
-        </StackPanel> 
-    </Grid> 
+            </StackPanel> 
+        </Grid> 
 
-    <ContentControl
-        Grid.Row="1"
-        Margin="16,0" 
-        Content="{Binding CurrentShapeCreaterVM}"/>
+        <Panel
+        Grid.Row="1" >
+            <ContentControl 
+                Background=""
+                Margin="16,0" 
+                Content="{Binding CurrentShapeCreaterVM}"/>
+        </Panel> 
 
     </Grid> 
 </UserControl>

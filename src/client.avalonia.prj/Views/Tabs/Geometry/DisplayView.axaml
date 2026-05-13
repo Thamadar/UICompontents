@@ -19,7 +19,7 @@
     <ScrollViewer
     HorizontalScrollBarVisibility="Auto"
     VerticalScrollBarVisibility="Auto"
-    Background="#676767"> 
+    Background="{StaticResource CanvasEmptyBackground}"> 
         <ItemsControl 
         ItemsSource="{Binding TotalShapes}">
             <ItemsControl.ItemsPanel>
@@ -54,7 +54,7 @@
                     BorderThickness="{Binding BorderThickness}"/>
                 </DataTemplate>
 
-                <!-- Окружность -->
+                <!-- Прямоугольник -->
                 <DataTemplate
                 DataType="{x:Type shapes:IRectItem}">
                     <uic:RectControl 

@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Shapes;
 using Avalonia.Media;
 using Client.Avalonia.Services;
+using Client.Avalonia.Services.Interfaces;
 using Client.Avalonia.Views.Geometry.Shapes;
 using DynamicData;
 using Lib.Avalonia;
@@ -58,15 +59,13 @@ namespace Client.Avalonia.Views
             _shapeService = ShapeService.Instance;
 
             _shapeService
-                .ConnectToTotalShapes()
-                .ObserveOn(RxApp.MainThreadScheduler)
+                .ConnectToTotalShapes() 
                 .Bind(out _totalShapes)
                 .Subscribe()
                 .AddTo(_disposables);
 
             _shapeService
-                .CurrentSelectedShapeObservable
-                .ObserveOn(RxApp.MainThreadScheduler)
+                .CurrentSelectedShapeObservable 
                 .BindTo(this, x => x.SelectedShape)
                 .AddTo(_disposables);
 

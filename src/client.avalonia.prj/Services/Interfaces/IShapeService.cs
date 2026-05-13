@@ -1,8 +1,7 @@
-﻿using Avalonia.Controls;
-using Client.Avalonia.Views.Geometry.Shapes;
+﻿using Client.Avalonia.Views.Geometry.Shapes;
 using DynamicData;
 
-namespace Client.Avalonia.Services
+namespace Client.Avalonia.Services.Interfaces
 {
     //TO DO: IDisposable привентить.
     /// <summary>
@@ -23,31 +22,31 @@ namespace Client.Avalonia.Services
         /// <summary>
         /// Получить текущую выделенную геом. фигуру.
         /// </summary> 
-        public IShapeItem? GetCurrentSelectedShape();
+        IShapeItem? GetCurrentSelectedShape();
 
         /// <summary>
         /// Добавить геом. фигуру
         /// </summary>
-        public void AddShape(IShapeItem shapeItem);
+        void AddShape(IShapeItem shapeItem);
 
         /// <summary>
         /// Добавление множество геом. фигур.
         /// </summary> 
-        public void AddRangeShape(IEnumerable<IShapeItem> shapeItems);
+        void AddRangeShape(IEnumerable<IShapeItem> shapeItems);
 
         /// <summary>
         /// Удалить геом. фигуру.
         /// </summary> 
-        public void RemoveShapeById(Guid guid);
+        void RemoveShapeById(Guid guid);
 
         /// <summary>
         /// Удалить все геом. фигуры.
         /// </summary>
-        public void RemoveAllShapes();
+        void RemoveAllShapes();
 
         /// <summary>
         /// Выбрать геом. фигуру по ID.
         /// </summary> 
-        public void SelectShapeById(Guid? guid = null);
+        void SelectShapeById(Guid? guid = null);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Avalonia.Controls;
+using Client.Avalonia.Services.Interfaces;
 using Client.Avalonia.Views.Geometry.Shapes;
 using DynamicData; 
 using System.Reactive.Linq;

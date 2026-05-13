@@ -5,15 +5,16 @@
     <StackPanel
     Grid.Row="0"
     Margin="16,0"
+    Background="{StaticResource PrimaryBlue}"
     Orientation="Horizontal"
     Height="32"
     Spacing="4">
         <RadioButton
-        Classes="default"
+        Classes="default menu"
         Content="Прямоугольник" 
         GroupName="Shapes"/>
-        <RadioButton
-        Classes="default"
+    <RadioButton
+        Classes="default menu"
         Content="Окружность" 
         GroupName="Shapes"/>
         </StackPanel>
@@ -43,6 +44,8 @@
         <Setter Property="Background" Value="transparent" />
         <Setter Property="BorderBrush" Value="{StaticResource PrimaryBlue}"/>
         <Setter Property="Margin"     Value="0 0 0 0" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="MinWidth" Value="120" />
         <Setter Property="Foreground" Value="#52585a" />
         <Setter Property="CornerRadius"     Value="4" />
         <Setter Property="HorizontalContentAlignment"     Value="Center" />
@@ -51,8 +54,8 @@
             <ControlTemplate>
                 <ContentPresenter
                 Name="PART_ContentPresenter"
-                Height="24"
-                MinWidth="140"
+                Height="{TemplateBinding Height}"
+                MinWidth="{TemplateBinding MinWidth}"
                 Foreground="{TemplateBinding Foreground}"
                 Margin="{TemplateBinding Margin}"
                 Padding="{TemplateBinding Padding}"
@@ -83,15 +86,46 @@
         </Style>
 
         <Style Selector="^:pointerover:not(:checked)">
-            <Setter Property="Background" Value="#d2e6f4"/>
-            <Setter Property="BorderBrush" Value="#d2e6f4"/>
+            <Setter Property="Background" Value="#5fc6f1"/>
+            <Setter Property="BorderBrush" Value="#5fc6f1"/>
             
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Foreground" Value="White" />
             </Style>
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="Black" />
+                <Setter Property="Foreground" Value="White" />
             </Style> 
+        </Style>
+          
+        
+         <Style Selector="^.menu">
+            <Setter Property="Height"       Value="32" />
+            <Setter Property="Foreground"   Value="White" /> 
+            <Setter Property="Background"   Value="{StaticResource PrimaryBlue}" />
+            <Setter Property="CornerRadius" Value="4,4,0,0"/> 
+             
+            <Style Selector="^:checked"> 
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="BorderBrush" Value="White"/>
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="Black" />
+                </Style>
+                <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="Black" />
+                </Style>
+            </Style>
+
+            <Style Selector="^:pointerover:not(:checked)">
+                <Setter Property="Background" Value="#d2e6f4"/>
+                <Setter Property="BorderBrush" Value="#d2e6f4"/>
+                
+                <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="Black" />
+                </Style>
+                <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Foreground" Value="Black" />
+                </Style> 
+            </Style>
         </Style>
     </Style>
 </Styles>

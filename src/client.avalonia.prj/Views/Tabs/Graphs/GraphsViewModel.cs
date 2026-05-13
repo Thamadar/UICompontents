@@ -1,19 +1,23 @@
-﻿
-using Avalonia.Input;
-using Client.Avalonia.Services;
+﻿using Client.Avalonia.Services;
 using Client.Avalonia.Services.Interfaces;
 using Lib.Avalonia;
-using Lib.Avalonia.Helpers; 
+using Lib.Avalonia.Helpers;
+using ReactiveUI;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Client.Avalonia.Views
 {
     /// <summary>
-    /// VM, отвечающая за вкладку "Графический редактор".
-    /// //TO DO: переименовать класс. GeometryViewModel => GhaphicEditorViewModel.
+    /// VM, отвечающая за вкладку "Графики". 
     /// </summary>
-    public sealed partial class GeometryViewModel : ViewModelBase, ITabVM
+    public sealed partial class GraphsViewModel : ViewModelBase, ITabVM
     {
-        private readonly IShapeService _shapeService;
+
+        #region Properties
 
         public GeometryCreateMenuViewModel GeometryCreateMenuViewModel { get; }
         public DisplayViewModel DisplayViewModel { get; }
@@ -21,31 +25,33 @@ namespace Client.Avalonia.Views
         /// <inheritdoc/>
         public Guid Id { get; }
 
+        #endregion
+
+        #region .ctor
+
         /// <summary>
         /// Конструктор-заглушка, дабы Designer не падал.
         /// </summary>
-        public GeometryViewModel()
+        public GraphsViewModel()
             : this(Guid.NewGuid())
         {
 
         }
-
-        public GeometryViewModel(Guid id)
-        {
-            _shapeService = ShapeService.Instance;
-
+        public GraphsViewModel(Guid id)
+        { 
             Id = id;
-
-            GeometryCreateMenuViewModel = new GeometryCreateMenuViewModel();
-            DisplayViewModel            = new DisplayViewModel(Commands.CreateShapeCommand);
         }
+
+        #endregion
+
+        #region Methods
 
         /// <inheritdoc/>
         public IEnumerable<IHotKey> GetTabHotKeys()
         {
             var hotKeys = new List<IHotKey>
             {
-                new HotKey(Key.Delete, Commands.RemoveShapeCommand)
+
             };
 
             return hotKeys;
@@ -68,5 +74,8 @@ namespace Client.Avalonia.Views
 
             return Task.CompletedTask;
         }
+
+        #endregion
+
     }
 }
