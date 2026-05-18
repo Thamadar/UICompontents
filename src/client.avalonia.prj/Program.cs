@@ -16,6 +16,8 @@ namespace Client.Avalonia
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
             .UsePlatformDetect()
+            //.With(() => new X11PlatformOptions { OverlayPopups = true })
+            //.With(() => new Win32PlatformOptions { OverlayPopups = true })
             .UseReactiveUI()
             .WithInterFont()
             .LogToTrace();

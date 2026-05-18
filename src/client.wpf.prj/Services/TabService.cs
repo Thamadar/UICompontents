@@ -1,24 +1,16 @@
-﻿using Client.Avalonia.Services.Interfaces;
-using Client.Avalonia.Views;
-using Client.Avalonia.Views.Geometry.Shapes;
+﻿using Client.WPF.Services.Interfaces;
+using Client.WPF.Views;
 using DynamicData;
 using DynamicData.Binding;
-using Lib.Avalonia.Extensions;
-using Lib.Avalonia.Helpers;
-using ReactiveUI;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reactive.Concurrency;
+using Lib.WPF.Extensions;
+using Lib.WPF.Helpers; 
+using System.Collections.ObjectModel; 
 using System.Reactive.Linq;
-using System.Reactive.Subjects;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reactive.Subjects; 
 
-namespace Client.Avalonia.Services 
+namespace Client.WPF.Services
 {
+
     public class TabService : ITabService
     {
         #region Fields
@@ -65,20 +57,20 @@ namespace Client.Avalonia.Services
 
         private TabService()
         {
-            _totalTabMenu                = new SourceList<TabMenu>();
-            _totalHotKeys                = new SourceList<IHotKey>();
+            _totalTabMenu = new SourceList<TabMenu>();
+            _totalHotKeys = new SourceList<IHotKey>();
             _currentSelectedTabVMSubject = new Subject<ITabVM?>();
-             
+
             _totalTabMenu
-                .Connect()  
+                .Connect()
                 .Bind(out _tabMenuObservable)
                 .Subscribe()
                 .AddTo(_disposables);
 
-            _tabMenuObservable 
+            _tabMenuObservable
                 .ToObservableChangeSet(item => item.WhenPropertyChanged(prop => prop.IsSelected))
                 .AutoRefresh(un => un.IsSelected)
-                .Subscribe(changeSet =>     
+                .Subscribe(changeSet =>
                 {
                     foreach(var change in changeSet)
                     {
@@ -86,10 +78,10 @@ namespace Client.Avalonia.Services
                         {
                             //TO DO: await
                             SelectTabMenu(change.Current.TabCategory);
-                        } 
-                    } 
+                        }
+                    }
                 })
-                .AddTo(_disposables); 
+                .AddTo(_disposables);
         }
 
         #endregion
@@ -118,7 +110,7 @@ namespace Client.Avalonia.Services
         {
             var tabMenu = new List<TabMenu>()
             {
-                new TabMenu("Графики", TabCategoryEnum.Graphs), 
+                new TabMenu("Графики", TabCategoryEnum.Graphs),
                 new TabMenu("Граф. редактор", TabCategoryEnum.GraphicEditor)
             };
 
@@ -129,18 +121,18 @@ namespace Client.Avalonia.Services
         public async Task SelectTabMenu(TabCategoryEnum tabCategoryEnum)
         {
             var selectedTabMenu = _totalTabMenu.Items.FirstOrDefault(x => x.TabCategory.Equals(tabCategoryEnum));
-            
+
             if(selectedTabMenu != null && !selectedTabMenu.Id.Equals(CurrentSelectedTabVM?.Id))
-            { 
+            {
                 if(CurrentSelectedTabVM != null)
-                { 
+                {
                     selectedTabMenu.IsSelected = false;
                     await CurrentSelectedTabVM.DisposeTab();
-                }  
+                }
 
                 var tabVM = CreateTabVM(selectedTabMenu);
 
-                CurrentSelectedTabVM = tabVM; 
+                CurrentSelectedTabVM = tabVM;
 
                 if(CurrentSelectedTabVM != null)
                 {
@@ -149,19 +141,19 @@ namespace Client.Avalonia.Services
                 }
 
                 //TO DO: вынести
-                if(CurrentSelectedTabVM!=null)
+                if(CurrentSelectedTabVM != null)
                 {
                     _totalHotKeys.Clear();
                     _totalHotKeys.AddRange(CurrentSelectedTabVM.GetTabHotKeys());
-                } 
-            } 
+                }
+            }
         }
-         
+
         /// <summary>
         /// Создание свежей вкладки, а именно VM, возвращая ITabVM.
         /// </summary> 
         private ITabVM? CreateTabVM(TabMenu tabMenu)
-        { 
+        {
             return tabMenu.TabCategory switch
             {
                 TabCategoryEnum.GraphicEditor => new GeometryViewModel(tabMenu.Id),
@@ -169,7 +161,7 @@ namespace Client.Avalonia.Services
 
                 //TO DO: остальные типы...
                 _ => throw new ArgumentOutOfRangeException("Tab create invalid")
-            }; 
+            };
         }
 
         #endregion

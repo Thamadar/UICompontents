@@ -1,0 +1,109 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Client.WPF.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:shapes="clr-namespace:Client.WPF.Views.Geometry.Shapes"
+    xmlns:uic="clr-namespace:Lib.WPF.Controls;assembly=lib.wpf" xmlns:uiconv="clr-namespace:Lib.WPF.Converters;assembly=lib.wpf"
+    d:DesignHeight="150" d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="Client.WPF.Views.RectMenuEditView">
+
+    <StackPanel
+        Orientation="Horizontal">
+ 
+        <StackPanel 
+            Orientation="Vertical">
+            <TextBlock
+                Text="Заливка:" />
+
+        </StackPanel>
+
+        <StackPanel
+            Margin="8,0,0,0"
+            Orientation="Vertical">
+            <TextBlock
+                Text="Обводка:" />
+
+        </StackPanel>
+
+        <StackPanel
+            Margin="8,0,0,0"
+            Orientation="Vertical">
+            <!-- TO DO: TextBox в значение ещё добавить -->
+            <TextBlock>
+                <Run
+                    Text="Контур:" />
+                <Run
+                    Text="{Binding BorderThickness, StringFormat={}{0:0}}" />
+            </TextBlock>
+
+            <Slider
+                Width="150"
+                Margin="0,-14,0,0"
+                HorizontalAlignment="Left"
+                IsSnapToTickEnabled="True" Maximum="50"
+                Minimum="0" TickFrequency="1"
+                Value="{Binding BorderThickness}" />
+        </StackPanel>
+
+        <StackPanel
+            Margin="8,0,0,0"
+            Orientation="Vertical">
+            <!-- TO DO: TextBox в значение ещё добавить -->
+            <TextBlock>
+                <Run
+                    Text="Непрозрачность:" />
+                <Run
+                    Text="{Binding Opacity, StringFormat={}{0:P0}}" />
+            </TextBlock>
+
+            <Slider
+                Width="150"
+                Margin="0,-14,0,0"
+                HorizontalAlignment="Left"
+                IsSnapToTickEnabled="True" Maximum="1"
+                Minimum="0" TickFrequency="0.05"
+                Value="{Binding Opacity}" />
+        </StackPanel>
+
+        <StackPanel
+            Margin="8,0,0,0"
+            Orientation="Vertical">
+            <!-- TO DO: TextBox в значение ещё добавить -->
+            <TextBlock>
+                <Run
+                    Text="Ширина:" />
+                <Run
+                    Text="{Binding Width, StringFormat={}{0:0}}" />
+            </TextBlock>
+
+            <Slider
+                Width="150"
+                Margin="0,-14,0,0"
+                HorizontalAlignment="Left"
+                IsSnapToTickEnabled="True" Maximum="100"
+                Minimum="1" TickFrequency="1"
+                Value="{Binding Width}" />
+        </StackPanel>
+
+        <StackPanel
+            Margin="8,0,0,0"
+            Orientation="Vertical">
+            <!-- TO DO: TextBox в значение ещё добавить -->
+            <TextBlock>
+                <Run
+                    Text="Высота:" />
+                <Run
+                    Text="{Binding Height, StringFormat={}{0:0}}" />
+            </TextBlock>
+
+            <Slider
+                Width="150"
+                Margin="0,-14,0,0"
+                HorizontalAlignment="Left"
+                IsSnapToTickEnabled="True" Maximum="100"
+                Minimum="1" TickFrequency="1"
+                Value="{Binding Height}" />
+        </StackPanel>
+    </StackPanel>
+</UserControl>

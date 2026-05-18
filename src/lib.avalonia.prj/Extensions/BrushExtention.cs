@@ -1,13 +1,8 @@
 ﻿using Avalonia.Media;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lib.Avalonia.Extensions
 {
-    public static class BrushExtentions
+    public static class BrushExtention
     {
         public static SolidColorBrush? ToSolidColorBrush(this IBrush brush, double opacity = 1)
         {

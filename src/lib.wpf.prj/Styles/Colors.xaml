@@ -1,0 +1,35 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <Color x:Key="SliderTrackFillColor">#8eaac1</Color>
+    <Color x:Key="SliderTrackFillPointerOverColor">#8eaac1</Color>
+    <Color x:Key="SliderTrackFillPressedColor">#8eaac1</Color>
+
+    <Color x:Key="PrimaryGreenColor">#00645f</Color>
+    <Color x:Key="PrimaryBlueColor">#006cb5</Color>
+    <Color x:Key="PrimaryOrangeColor">#e85222</Color>
+
+    <SolidColorBrush
+        x:Key="SliderTrackFill"
+        Color="{StaticResource SliderTrackFillColor}" />
+    <SolidColorBrush
+        x:Key="SliderTrackFillPointerOver"
+        Color="{StaticResource SliderTrackFillPointerOverColor}" />
+    <SolidColorBrush
+        x:Key="SliderTrackFillPressed"
+        Color="{StaticResource SliderTrackFillPressedColor}" />
+
+    <!-- Главные цвета айдентики компании -->
+    <SolidColorBrush
+        x:Key="PrimaryGreen"
+        Color="{StaticResource PrimaryGreenColor}" />
+    <SolidColorBrush
+        x:Key="PrimaryBlue"
+        Color="{StaticResource PrimaryBlueColor}" />
+    <SolidColorBrush
+        x:Key="PrimaryOrange"
+        Color="{StaticResource PrimaryOrangeColor}" />
+
+</ResourceDictionary>

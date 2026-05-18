@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Shapes;
 using Avalonia.Media; 
 
 namespace Lib.Avalonia.Controls
@@ -18,8 +19,7 @@ namespace Lib.Avalonia.Controls
 
         public static readonly StyledProperty<double> BorderThicknessProperty =
        AvaloniaProperty.Register<RectControl, double>(nameof(BorderThickness), defaultValue: 1);
-
-
+         
         public static readonly StyledProperty<bool> IsSelectedProperty =
        AvaloniaProperty.Register<CircleControl, bool>(nameof(IsSelected));
 
@@ -65,7 +65,7 @@ namespace Lib.Avalonia.Controls
         }
 
         public override void Render(DrawingContext context)
-        {
+        { 
             var pen = new Pen(BorderBrush, BorderThickness);
 
             var itemRect = new Rect(Bounds.X - (Width / 2), Bounds.Y - (Height / 2), Width, Height);

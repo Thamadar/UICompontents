@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Color x:Key="CanvasEmptyBackgroundColor">#676767</Color>
+
+    <SolidColorBrush
+        x:Key="CanvasEmptyBackground"
+        Color="{StaticResource CanvasEmptyBackgroundColor}" />
+
+</ResourceDictionary>

@@ -11,7 +11,7 @@
         x:Class="Client.Avalonia.MainWindowView"
         Focusable="True"
         Background="White"
-        WindowState="Maximized"
+        WindowState="Maximized" 
         Title="UIComponents">
 
     <Design.DataContext>

@@ -1,0 +1,51 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:Client.WPF.Views" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uib="clr-namespace:Lib.WPF.Behaviors;assembly=lib.wpf" xmlns:uic="clr-namespace:Lib.WPF.Controls;assembly=lib.wpf"
+    xmlns:views="clr-namespace:Client.WPF.Views"
+    Title="MainWindow"
+    Width="800" Height="450"
+    mc:Ignorable="d"
+    x:Class="Client.WPF.Views.MainWindowView">
+
+    <i:Interaction.Behaviors>
+        <uib:AddWindowHotKeysBehavior
+            HotKeys="{Binding HotKeys}" />
+    </i:Interaction.Behaviors>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="Auto" />
+            <ColumnDefinition
+                Width="*" />
+        </Grid.ColumnDefinitions>
+        <ItemsControl
+            Grid.Column="0"
+            Background="{StaticResource PrimaryBlue}"
+            ItemsSource="{Binding TotalTabMenu}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel
+                        Orientation="Vertical" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <RadioButton
+                        Content="{Binding DisplayName}"
+                        GroupName="Tabs"
+                        IsChecked="{Binding IsSelected}" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <uic:ViewLocatorControl
+            Grid.Column="1"
+            DataContext="{Binding CurrentTabVM}" />
+    </Grid>
+
+</Window>
