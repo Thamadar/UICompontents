@@ -74,7 +74,7 @@ namespace Client.Avalonia.Services
                 {
                     foreach(var change in changeSet)
                     {
-                        if(change.Current.IsSelected && !(CurrentSelectedTabVM != null && CurrentSelectedTabVM.Id.Equals(change.Current.Id)))
+                        if(change.Current.IsSelected && !(CurrentSelectedTabVM != null && CurrentSelectedTabVM.Id == change.Current.Id))
                         {
                             //TO DO: await
                             SelectTabMenu(change.Current.TabCategory);
@@ -122,7 +122,7 @@ namespace Client.Avalonia.Services
         {
             var selectedTabMenu = _totalTabMenu.Items.FirstOrDefault(x => x.TabCategory.Equals(tabCategoryEnum));
             
-            if(selectedTabMenu != null && !selectedTabMenu.Id.Equals(CurrentSelectedTabVM?.Id))
+            if(selectedTabMenu != null && !(selectedTabMenu.Id == CurrentSelectedTabVM?.Id))
             { 
                 if(CurrentSelectedTabVM != null)
                 { 

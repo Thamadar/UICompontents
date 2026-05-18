@@ -70,7 +70,7 @@ namespace Client.Avalonia.Services
         /// <inheritdoc/>
         public void AddShape(IShapeItem shapeItem)
         {
-            if(!_totalShapes.Items.Any(x => x.Id.Equals(shapeItem.Id)))
+            if(!_totalShapes.Items.Any(x => x.Id == shapeItem.Id))
             {
                 _totalShapes.Add(shapeItem);
             }
@@ -81,7 +81,7 @@ namespace Client.Avalonia.Services
         {
             foreach(var shapeItem in shapeItems)
             {  
-                if(!_totalShapes.Items.Any(x => x.Id.Equals(shapeItem.Id)))
+                if(!_totalShapes.Items.Any(x => x.Id == shapeItem.Id))
                 {
                     _totalShapes.Add(shapeItem);
                 }
@@ -91,7 +91,7 @@ namespace Client.Avalonia.Services
         /// <inheritdoc/>
         public void RemoveShapeById(Guid guid)
         {
-            var shapeItem = _totalShapes.Items.FirstOrDefault(x => x.Id.Equals(guid));
+            var shapeItem = _totalShapes.Items.FirstOrDefault(x => x.Id == guid);
             if(shapeItem != null)
             {
                 CheckAndDeselectShape(shapeItem);
@@ -127,8 +127,8 @@ namespace Client.Avalonia.Services
                 return;
             }
 
-            var selectedShape = _totalShapes.Items.FirstOrDefault(x => x.Id.Equals(guid)); 
-            if(selectedShape != null && !selectedShape.Id.Equals(CurrentSelectedShape?.Id))
+            var selectedShape = _totalShapes.Items.FirstOrDefault(x => x.Id == guid); 
+            if(selectedShape != null && !(selectedShape.Id == CurrentSelectedShape?.Id))
             { 
                 selectedShape.IsSelected = true;
 
@@ -140,7 +140,7 @@ namespace Client.Avalonia.Services
 
         private void CheckAndDeselectShape(IShapeItem shapeItem)
         {
-            if(CurrentSelectedShape != null && CurrentSelectedShape.Id.Equals(shapeItem.Id))
+            if(CurrentSelectedShape != null && CurrentSelectedShape.Id == shapeItem.Id)
             {
                 CurrentSelectedShape.IsSelected = false;
                 CurrentSelectedShape = null;
