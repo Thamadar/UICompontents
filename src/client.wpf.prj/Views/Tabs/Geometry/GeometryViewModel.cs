@@ -2,11 +2,7 @@
 using Client.WPF.Services.Interfaces;
 using Lib.WPF;
 using Lib.WPF.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Input;
 
 namespace Client.WPF.Views 

@@ -1,6 +1,5 @@
 ﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Controls.Shapes;
+using Avalonia.Controls; 
 using Avalonia.Media;
 using Client.Avalonia.Services;
 using Client.Avalonia.Services.Interfaces;
@@ -85,7 +84,9 @@ namespace Client.Avalonia.Views
         /// Загрузка базовых геом. фигур (для теста).
         /// </summary>
         private void LoadDefaultShapes()
-        { 
+        {
+            _shapeService.RemoveAllShapes();
+
             var shapes = new List<IShapeItem>()
             {
                 new CircleItem(100, 200, 50, 0, 1, SolidColorBrush.Parse("#006cb5")),

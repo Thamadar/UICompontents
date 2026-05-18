@@ -1,5 +1,4 @@
-﻿using Avalonia.Controls;
-using Client.Avalonia.Services.Interfaces;
+﻿using Client.Avalonia.Services.Interfaces;
 using Client.Avalonia.Views.Geometry.Shapes;
 using DynamicData; 
 using System.Reactive.Linq;
@@ -104,7 +103,7 @@ namespace Client.Avalonia.Services
         /// <inheritdoc/>
         public void RemoveAllShapes()
         {
-            for(int i = _totalShapes.Count; i != 0; i++)
+            for(int i = _totalShapes.Count; i != 0; i--)
             {
                 var shapeItem = _totalShapes.Items.Last();
 

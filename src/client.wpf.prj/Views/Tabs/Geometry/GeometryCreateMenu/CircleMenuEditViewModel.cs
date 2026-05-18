@@ -17,7 +17,7 @@ namespace Client.WPF.Views
 
         //TO DO: Remove назначения, как появится Control выбора цвета.
         private Brush _fill = (SolidColorBrush)new BrushConverter().ConvertFrom("#006cb5");
-        private Brush _borderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#006cb5");
+        private Brush _borderBrush = Brushes.Red;
 
         #endregion
 

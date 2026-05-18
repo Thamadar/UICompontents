@@ -49,12 +49,12 @@
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas
-                        Width="1500" Height="720"
-                        Background="Aqua">
+                        Width="1500" Height="720" 
+                        Style="{StaticResource graphic}">
                         <i:Interaction.Behaviors>
                             <behaviors:CanvasHitTestBehavior
-                            CreateCommand="{Binding CreateShapeCommand}"
-                            IsHitTestEnabled="True" />
+                                CreateCommand="{Binding CreateShapeCommand}"
+                                IsHitTestEnabled="True" />
                         </i:Interaction.Behaviors>
                     </Canvas>
                 </ItemsPanelTemplate>

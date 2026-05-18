@@ -4,7 +4,12 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary
+            Source="../Resources/Icons.xaml" />
+        <ResourceDictionary
             Source="Colors.xaml" />
+        
+        <ResourceDictionary
+            Source="RadioButton.xaml" /> 
 
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

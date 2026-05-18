@@ -78,6 +78,8 @@ namespace Client.WPF.Views
         /// </summary>
         private void LoadDefaultShapes()
         {
+            _shapeService.RemoveAllShapes();
+
             var shapes = new List<IShapeItem>()
             {
                 new CircleItem(100, 200, 50, 0, 1, (SolidColorBrush)new BrushConverter().ConvertFrom("#006cb5")),

@@ -26,12 +26,14 @@
                 <RadioButton
                     Content="Прямоугольник"
                     GroupName="Shapes"
-                    IsChecked="{Binding SelectedShapeCreate, Converter={x:Static uiconv:EnumToBooleanConverter.Instance}, ConverterParameter={x:Static local:ShapeCreateEnum.Rect}, Mode=TwoWay}" />
+                    IsChecked="{Binding SelectedShapeCreate, Converter={x:Static uiconv:EnumToBooleanConverter.Instance}, ConverterParameter={x:Static local:ShapeCreateEnum.Rect}, Mode=TwoWay}"
+                    Style="{StaticResource RadioButtonMenuStyle}" />
                 <RadioButton
                     Margin="4,0,0,0"
                     Content="Окружность"
                     GroupName="Shapes"
-                    IsChecked="{Binding SelectedShapeCreate, Converter={x:Static uiconv:EnumToBooleanConverter.Instance}, ConverterParameter={x:Static local:ShapeCreateEnum.Circle}, Mode=TwoWay}" />
+                    IsChecked="{Binding SelectedShapeCreate, Converter={x:Static uiconv:EnumToBooleanConverter.Instance}, ConverterParameter={x:Static local:ShapeCreateEnum.Circle}, Mode=TwoWay}"
+                    Style="{StaticResource RadioButtonMenuStyle}" />
             </StackPanel>
         </Grid>
 

@@ -9,12 +9,17 @@
     x:Class="Client.WPF.Views.RectMenuEditView">
 
     <StackPanel
-        Orientation="Horizontal">
- 
-        <StackPanel 
+        Orientation="Horizontal"
+        Margin="0,0,0,8">
+
+        <StackPanel
             Orientation="Vertical">
             <TextBlock
-                Text="Заливка:" />
+                Text="Заливка:"
+                Style="{StaticResource TextBlockMenuStyle}" />
+            <TextBlock
+                Text="(Brush picker)"
+                Style="{StaticResource TextBlockNormalStyle}" />
 
         </StackPanel>
 
@@ -22,7 +27,11 @@
             Margin="8,0,0,0"
             Orientation="Vertical">
             <TextBlock
-                Text="Обводка:" />
+                Text="Обводка:"
+                Style="{StaticResource TextBlockMenuStyle}" />
+            <TextBlock
+                Text="(Brush picker)"
+                Style="{StaticResource TextBlockNormalStyle}" />
 
         </StackPanel>
 
@@ -30,7 +39,8 @@
             Margin="8,0,0,0"
             Orientation="Vertical">
             <!-- TO DO: TextBox в значение ещё добавить -->
-            <TextBlock>
+            <TextBlock
+                Style="{StaticResource TextBlockMenuStyle}">
                 <Run
                     Text="Контур:" />
                 <Run
@@ -38,8 +48,7 @@
             </TextBlock>
 
             <Slider
-                Width="150"
-                Margin="0,-14,0,0"
+                Width="150" 
                 HorizontalAlignment="Left"
                 IsSnapToTickEnabled="True" Maximum="50"
                 Minimum="0" TickFrequency="1"
@@ -50,7 +59,8 @@
             Margin="8,0,0,0"
             Orientation="Vertical">
             <!-- TO DO: TextBox в значение ещё добавить -->
-            <TextBlock>
+            <TextBlock
+                Style="{StaticResource TextBlockMenuStyle}">
                 <Run
                     Text="Непрозрачность:" />
                 <Run
@@ -58,8 +68,7 @@
             </TextBlock>
 
             <Slider
-                Width="150"
-                Margin="0,-14,0,0"
+                Width="150" 
                 HorizontalAlignment="Left"
                 IsSnapToTickEnabled="True" Maximum="1"
                 Minimum="0" TickFrequency="0.05"
@@ -70,7 +79,8 @@
             Margin="8,0,0,0"
             Orientation="Vertical">
             <!-- TO DO: TextBox в значение ещё добавить -->
-            <TextBlock>
+            <TextBlock
+                Style="{StaticResource TextBlockMenuStyle}">
                 <Run
                     Text="Ширина:" />
                 <Run
@@ -78,8 +88,7 @@
             </TextBlock>
 
             <Slider
-                Width="150"
-                Margin="0,-14,0,0"
+                Width="150" 
                 HorizontalAlignment="Left"
                 IsSnapToTickEnabled="True" Maximum="100"
                 Minimum="1" TickFrequency="1"
@@ -90,7 +99,8 @@
             Margin="8,0,0,0"
             Orientation="Vertical">
             <!-- TO DO: TextBox в значение ещё добавить -->
-            <TextBlock>
+            <TextBlock
+                Style="{StaticResource TextBlockMenuStyle}">
                 <Run
                     Text="Высота:" />
                 <Run
@@ -98,8 +108,7 @@
             </TextBlock>
 
             <Slider
-                Width="150"
-                Margin="0,-14,0,0"
+                Width="150" 
                 HorizontalAlignment="Left"
                 IsSnapToTickEnabled="True" Maximum="100"
                 Minimum="1" TickFrequency="1"

@@ -38,10 +38,10 @@ namespace Client.WPF.Views
         {
             get => _currentTabVM;
             set => this.RaiseAndSetIfChanged(ref _currentTabVM, value);
-        }
-
+        } 
+         
         public MainWindowViewModel()
-        {
+        {  
             _tabService = TabService.Instance;
 
             HotKeys = new ObservableCollection<IHotKey>();

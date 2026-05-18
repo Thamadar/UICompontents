@@ -1,21 +1,13 @@
 ﻿using Client.Avalonia.Services.Interfaces;
-using Client.Avalonia.Views;
-using Client.Avalonia.Views.Geometry.Shapes;
+using Client.Avalonia.Views; 
 using DynamicData;
 using DynamicData.Binding;
 using Lib.Avalonia.Extensions;
 using Lib.Avalonia.Helpers;
-using ReactiveUI;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reactive.Concurrency;
+using ReactiveUI; 
+using System.Collections.ObjectModel; 
 using System.Reactive.Linq;
-using System.Reactive.Subjects;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reactive.Subjects; 
 
 namespace Client.Avalonia.Services 
 {

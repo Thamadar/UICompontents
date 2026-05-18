@@ -5,8 +5,9 @@
     xmlns:local="clr-namespace:Client.WPF.Views" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uib="clr-namespace:Lib.WPF.Behaviors;assembly=lib.wpf" xmlns:uic="clr-namespace:Lib.WPF.Controls;assembly=lib.wpf"
     xmlns:views="clr-namespace:Client.WPF.Views"
-    Title="MainWindow"
+    Title="UIComponents"
     Width="800" Height="450"
+    WindowState="Maximized"
     mc:Ignorable="d"
     x:Class="Client.WPF.Views.MainWindowView">
 
@@ -38,7 +39,8 @@
                     <RadioButton
                         Content="{Binding DisplayName}"
                         GroupName="Tabs"
-                        IsChecked="{Binding IsSelected}" />
+                        IsChecked="{Binding IsSelected}"
+                        Style="{StaticResource RadioButtonTabStyle}" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
