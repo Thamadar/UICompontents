@@ -2,7 +2,7 @@
 
 namespace Lib.Avalonia.Extensions
 {
-    public static class BrushExtention
+    public static class BrushExtension
     {
         public static SolidColorBrush? ToSolidColorBrush(this IBrush brush, double opacity = 1)
         {

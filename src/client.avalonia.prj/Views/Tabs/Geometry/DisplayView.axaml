@@ -4,13 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Xaml.Behaviors.Interactivity"
              xmlns:behaviors="using:Client.Avalonia.Behaviors"
-             xmlns:local="using:Client.Avalonia.Views"
+             xmlns:local="using:Client.Avalonia.Views.Geometry"
              xmlns:uic="using:Lib.Avalonia.Controls"
              xmlns:shapes="using:Client.Avalonia.Views.Geometry.Shapes"
              x:DataType="local:DisplayViewModel"
 
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Client.Avalonia.Views.DisplayView">
+             x:Class="Client.Avalonia.Views.Geometry.DisplayView">
 
     <Design.DataContext>
         <local:DisplayViewModel />

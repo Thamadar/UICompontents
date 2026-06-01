@@ -1,0 +1,128 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:helpers="using:Lib.Avalonia.Helpers"
+        xmlns:controls="using:Lib.Avalonia.Controls">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <!-- Add Controls for Previewer Here -->
+    </Border>
+  </Design.PreviewWith>
+
+  <Style Selector="controls|CustomMenuItem">  
+        <Style Selector="^:pointerover">
+            <Setter Property="Cursor" Value="Hand"/>  
+        </Style> 
+
+        <Setter Property="Padding" Value="12,8"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Panel>
+                        <Border
+                         Background="{TemplateBinding Background}" 
+                        CornerRadius="4"
+                        Padding="{TemplateBinding Padding}"> 
+                            <Panel> 
+                                <!-- Сепаратор -->
+                                <Separator
+                                Classes="default menu"
+                                IsVisible="{Binding IsSeparator, RelativeSource={RelativeSource TemplatedParent}}" 
+                                Margin="4,4"/>
+                                
+                                <!-- Контент пункта меню -->
+                                <Grid ColumnDefinitions="Auto,*,Auto"
+                                      IsVisible="{Binding !IsSeparator, RelativeSource={RelativeSource TemplatedParent}}">
+                                    
+                                    <!-- Иконка -->
+                                    <ContentControl Grid.Column="0"
+                                                    IsVisible="{TemplateBinding Icon, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                                    Content="{TemplateBinding Icon}"
+                                                    Template="{TemplateBinding Icon}"
+                                                    VerticalAlignment="Center"
+                                                    Margin="0,0,12,0"
+                                                    Width="20"
+                                                    Height="20"/>
+                                                    
+                                    <Grid 
+                                    Grid.Column="1"
+                                    ColumnDefinitions="*, 50">            
+                                        <!-- Текст -->
+                                        <TextBlock Grid.Column="0"
+                                                   Text="{TemplateBinding Text}"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="14" />
+
+                                        <!-- Текст -->
+                                        <TextBlock Grid.Column="1"
+                                                   Text="{TemplateBinding Key}"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="14" />
+                                    </Grid>
+                                    
+                                    <!-- Стрелка для вложенного меню. Переделать-->
+                                    <Path Grid.Column="2"
+                                          IsVisible="{Binding Items.Count, RelativeSource={RelativeSource TemplatedParent}}"
+                                          Data="M0,0 L4,4 L8,0 Z"
+                                          Fill="#787878"
+                                          Width="8"
+                                          Height="4"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          Margin="8,0,0,0" 
+                                          RenderTransformOrigin="0.5,0.5"/>
+                                </Grid>
+                            </Panel>
+                        </Border>
+                   
+                        <!-- Вложенное подменю --> 
+                         <controls:PopupControl   
+                                Name="PART_HiddenItemsPopupControl" 
+                                IsOpen="{Binding IsSubMenuOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                PlacementTarget="{TemplateBinding}"
+                                TreeModeClose="False" 
+                                MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                Placement="Right"
+                                HorizontalOffset="-4"
+                                IsVisible="{Binding Items.Count, RelativeSource={RelativeSource TemplatedParent}}"> 
+                            <Border Background="{StaticResource PrimaryGray}"
+                                    BorderBrush="#787878"
+                                    BorderThickness="1"
+                                    CornerRadius="6"
+                                    MaxHeight="400">
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                              VerticalScrollBarVisibility="Auto">
+                                    <ItemsControl 
+                                    ItemsSource="{Binding Childs}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <controls:CustomMenuItem
+                                                x:DataType="helpers:IMenuDataItem" 
+                                                Icon="{Binding Icon}"
+                                                Key="{Binding Key}"
+                                                Text="{Binding Text}" 
+                                                Items="{Binding Childs}"
+                                                IsSeparator="{Binding IsSeparator}"
+                                                Padding="12,8"
+                                                Background="Transparent"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </Border>
+                        </controls:PopupControl> 
+                    </Panel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter> 
+        
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"  Value="{StaticResource PrimaryDark}"/> 
+        </Style>
+         
+        <Style Selector="^[IsSubMenuOpen=True]">
+            <Setter Property="Background"  Value="{StaticResource PrimaryDark}"/> 
+        </Style>
+  </Style>
+</Styles>

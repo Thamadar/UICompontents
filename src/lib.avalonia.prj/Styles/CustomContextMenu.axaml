@@ -1,0 +1,90 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:helpers="using:Lib.Avalonia.Helpers"
+        xmlns:controls="using:Lib.Avalonia.Controls">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <!-- Add Controls for Previewer Here -->
+    </Border>
+  </Design.PreviewWith>
+  
+  <Style Selector="controls|CustomContextMenu">  
+        <Style Selector="^:pointerover">
+            <Setter Property="Cursor" Value="Hand"/>  
+        </Style> 
+
+        <Setter Property="FontWeight" Value="Regular"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Padding" Value="12,8"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value> 
+                <ControlTemplate>
+                    <Panel>
+                         <!-- Отображение выбранного элемента -->
+                        <Border x:Name="PART_SelectedContent"
+                                Grid.Column="0"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4"
+                                Padding="12,8" >
+                            <ContentPresenter Content="{TemplateBinding Content}"
+                                              VerticalAlignment="Center"/>
+                        </Border> 
+
+                        <!-- Выпадающий список -->
+                        <controls:PopupControl
+                        x:Name="PART_DropDown" 
+                            Name="PART_HiddenItemsPopupControl" 
+                            IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                            PlacementTarget="{TemplateBinding}"
+                            TreeModeClose="False" 
+                            MinWidth="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                            Placement="BottomEdgeAlignedRight"
+                            HorizontalOffset="0"
+                            VerticalOffset="-4">
+                            <Border Background="{StaticResource PrimaryGray}"
+                                    BorderBrush="#787878"
+                                    BorderThickness="1"
+                                    CornerRadius="6" 
+                                    MaxHeight="400">
+                                <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                                              VerticalScrollBarVisibility="Auto">
+                                    <ItemsControl x:Name="PART_ItemsHost"
+                                                  ItemsSource="{Binding Items, RelativeSource={RelativeSource TemplatedParent}}">
+                                                  <ItemsControl.ItemTemplate>
+                                                      <DataTemplate>
+                                                          <controls:CustomMenuItem 
+                                                          x:DataType="helpers:IMenuDataItem"
+                                                          Icon="{Binding Icon}"
+                                                          Key="{Binding Key}"
+                                                          Text="{Binding Text}" 
+                                                          Items="{Binding Childs}"
+                                                          IsSeparator="{Binding IsSeparator}"
+                                                          Padding="12,8"
+                                                          Background="Transparent"/>
+                                                      </DataTemplate>
+                                                  </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ScrollViewer>
+                            </Border>
+                        </controls:PopupControl>
+                    </Panel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+         
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"  Value="{StaticResource PrimaryDark}"/>
+            <Setter Property="BorderBrush" Value="#787878"/>
+        </Style>
+         
+        <Style Selector="^[IsDropDownOpen=True]">
+            <Setter Property="Background"  Value="{StaticResource PrimaryDark}"/>
+            <Setter Property="BorderBrush" Value="#787878"/>
+        </Style>
+  </Style>
+</Styles>

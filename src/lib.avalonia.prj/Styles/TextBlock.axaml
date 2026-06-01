@@ -19,11 +19,11 @@
 
     <Style Selector="TextBlock.default">
         <Style Selector="^ TextElement">
-            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="Foreground" Value="{StaticResource PrimaryWhite}" />
         </Style>
+        <Setter Property="Foreground" Value="{StaticResource PrimaryWhite}" />
 
         <Setter Property="Padding" Value="4,7,4,4" />
-        <Setter Property="Foreground" Value="Black" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         
@@ -31,12 +31,10 @@
             <Setter Property="Padding" Value="0,7,4,4" /> 
         </Style>
         <Style Selector="^.normal">
-            <Setter Property="FontWeight" Value="Regular" />
-            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontWeight" Value="Regular" /> 
         </Style>
         <Style Selector="^.medium">
-            <Setter Property="FontWeight" Value="Regular" />
-            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontWeight" Value="Regular" /> 
             <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}" />
         </Style>
     </Style>

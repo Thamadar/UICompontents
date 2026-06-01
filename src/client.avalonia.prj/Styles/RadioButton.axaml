@@ -3,13 +3,15 @@
         xmlns:tab="using:Client.Avalonia.Views"
         xmlns:uiconverters="using:Lib.Avalonia.Converters">
   <Design.PreviewWith>
-    <Border Padding="20">
+    <Border Padding="20"
+    Width="500"
+    Background="BlueViolet">
         <StackPanel Orientation="Vertical"
-        Background="{StaticResource PrimaryBlue}">
+        Background="{StaticResource PrimaryGray}">
             <RadioButton 
             GroupName="Tab"
             Classes="tab"
-            Content="Graphs"/>
+            Content="Графический редактор"/>
             <RadioButton Classes="tab"
             GroupName="Tab"
             Content="Geometry"/>
@@ -33,43 +35,46 @@
   </Styles.Resources>
 
     <Style Selector="RadioButton.tab">
-        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontWeight" Value="Regular"/>
         <Setter Property="Padding"    Value="0"/>
         <Setter Property="Background" Value="transparent" />
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Margin"     Value="0 0 0 0" />
-        <Setter Property="Height" Value="90" />
-        <Setter Property="Width" Value="80" />
-        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Height"    Value="100" />
+        <Setter Property="MinHeight" Value="100" />
+        <Setter Property="MaxHeight" Value="100" />
+        <Setter Property="Width" Value="120" />
+        <Setter Property="Foreground" Value="{StaticResource PrimaryWhite}" />
         <Setter Property="CornerRadius"     Value="0" /> 
         <Setter Property="BorderThickness"     Value="0" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Grid
                 Name="PART_Container"
-                RowDefinitions="50,*"
+                RowDefinitions="16,32,6,28,18"
                 Background="{TemplateBinding Background}"
                 x:DataType="tab:ITabMenu">
                     
                     <ContentControl
-                    Margin="-3,3,0,0"
+                    Margin="-3,0,0,0"
+                    Grid.Row="1"
+                    IsHitTestVisible="False"
                     Template="{Binding TabCategory,
                                        Converter={StaticResource TabCategoryIconConverter}}"
-                    Width="32" Height="32" VerticalAlignment="Center" VerticalContentAlignment="Center"
+                    Width="35" Height="35"
                     HorizontalAlignment="Center"
                     Foreground="{TemplateBinding Foreground}"/>
 
                       <ContentPresenter
-                      Grid.Row="1"
-                      Name="PART_ContentPresenter"
-                      Height="{TemplateBinding Height}"
+                      Grid.Row="3"
+                      Name="PART_ContentPresenter" 
+                      IsHitTestVisible="False"
                       Foreground="{TemplateBinding Foreground}"
                       Margin="{TemplateBinding Margin}" 
                       Padding="{TemplateBinding Padding}"
                       TextAlignment="Center"
-                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                   
-                      HorizontalAlignment="Center" 
+                      VerticalAlignment="Center" VerticalContentAlignment="Center"
+                  
                       Content="{TemplateBinding Content}"
                       TextWrapping="Wrap"
                       Background="Transparent"
@@ -81,30 +86,33 @@
         </Setter>
 
         <Style Selector="^ > TextBlock">
-            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="LineHeight" Value="14"/>
+            <Setter Property="ClipToBounds" Value="False"/> 
             <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
         <Style Selector="^:checked"> 
-            <Setter Property="Background" Value="#025d9b"/>
-            <Setter Property="BorderBrush" Value="#025d9b"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+
+            <Setter Property="Background" Value="{StaticResource PrimaryGrayDark}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PrimaryGrayDark}"/>
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{StaticResource PrimaryWhite}" />
             </Style>
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{StaticResource PrimaryWhite}" />
             </Style>
         </Style>
 
         <Style Selector="^:pointerover:not(:checked)">
-            <Setter Property="Background" Value="#5fc6f1"/>
-            <Setter Property="BorderBrush" Value="#5fc6f1"/>
+            <Setter Property="Background" Value="#787878"/>
+            <Setter Property="BorderBrush" Value="#787878"/>
 
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{StaticResource PrimaryWhite}" />
             </Style>
             <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="{StaticResource PrimaryWhite}" />
             </Style>
     </Style> 
     </Style>

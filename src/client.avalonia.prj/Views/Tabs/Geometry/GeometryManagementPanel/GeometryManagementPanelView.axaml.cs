@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace Client.Avalonia.Views.Geometry;
 
-public partial class DisplayView : UserControl
+public partial class GeometryManagementPanelView : UserControl
 {
-    public DisplayView()
+    public GeometryManagementPanelView()
     {
         InitializeComponent();
     }

@@ -21,7 +21,9 @@
     <FluentTheme />
     <StyleInclude
             Source="avares://lib.avalonia/Styles/Styles.axaml" />
-
+            
+    <StyleInclude
+            Source="avares://client.avalonia/Styles/TextBlock.axaml" />
     <StyleInclude
             Source="avares://client.avalonia/Styles/RadioButton.axaml" />
 </Styles>

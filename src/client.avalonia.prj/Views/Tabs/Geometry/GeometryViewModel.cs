@@ -1,11 +1,11 @@
 ﻿
 using Avalonia.Input;
 using Client.Avalonia.Services;
-using Client.Avalonia.Services.Interfaces;
+using Client.Avalonia.Services.Interfaces; 
 using Lib.Avalonia;
 using Lib.Avalonia.Helpers; 
 
-namespace Client.Avalonia.Views
+namespace Client.Avalonia.Views.Geometry
 {
     /// <summary>
     /// VM, отвечающая за вкладку "Графический редактор".
@@ -15,6 +15,7 @@ namespace Client.Avalonia.Views
     {
         private readonly IShapeService _shapeService;
 
+        public GeometryManagementPanelViewModel GeometryManagementPanelViewModel { get; }
         public GeometryCreateMenuViewModel GeometryCreateMenuViewModel { get; }
         public DisplayViewModel DisplayViewModel { get; }
 
@@ -36,8 +37,9 @@ namespace Client.Avalonia.Views
 
             Id = id;
 
-            GeometryCreateMenuViewModel = new GeometryCreateMenuViewModel();
-            DisplayViewModel            = new DisplayViewModel(Commands.CreateShapeCommand);
+            GeometryManagementPanelViewModel = new GeometryManagementPanelViewModel();
+            GeometryCreateMenuViewModel      = new GeometryCreateMenuViewModel();
+            DisplayViewModel                 = new DisplayViewModel(Commands.CreateShapeCommand);
         }
 
         /// <inheritdoc/>

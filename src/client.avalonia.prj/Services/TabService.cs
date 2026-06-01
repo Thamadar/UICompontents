@@ -1,5 +1,7 @@
 ﻿using Client.Avalonia.Services.Interfaces;
-using Client.Avalonia.Views; 
+using Client.Avalonia.Views;
+using Client.Avalonia.Views.Geometry;
+using Client.Avalonia.Views.Graphs;
 using DynamicData;
 using DynamicData.Binding;
 using Lib.Avalonia.Extensions;
@@ -108,10 +110,12 @@ namespace Client.Avalonia.Services
         /// <inheritdoc/>
         public void LoadTotalTabMenuData()
         {
+            _totalTabMenu.Clear();
+
             var tabMenu = new List<TabMenu>()
             {
                 new TabMenu("Графики", TabCategoryEnum.Graphs), 
-                new TabMenu("Граф. редактор", TabCategoryEnum.GraphicEditor)
+                new TabMenu("Графический редактор", TabCategoryEnum.GraphicEditor)
             };
 
             _totalTabMenu.AddRange(tabMenu);
@@ -120,7 +124,7 @@ namespace Client.Avalonia.Services
         /// <inheritdoc/>
         public async Task SelectTabMenu(TabCategoryEnum tabCategoryEnum)
         {
-            var selectedTabMenu = _totalTabMenu.Items.FirstOrDefault(x => x.TabCategory.Equals(tabCategoryEnum));
+            var selectedTabMenu = _totalTabMenu.Items.FirstOrDefault(x => x.TabCategory == tabCategoryEnum);
             
             if(selectedTabMenu != null && !(selectedTabMenu.Id == CurrentSelectedTabVM?.Id))
             { 

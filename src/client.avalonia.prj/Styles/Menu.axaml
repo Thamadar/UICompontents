@@ -1,0 +1,34 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20">
+        <Menu Width="200">
+             <MenuItem
+             >
+                            <MenuItem.Header>
+                                <TextBlock Text="Test"   />
+                            </MenuItem.Header>
+                            <MenuItem 
+                                Header="Test1" />
+                            <MenuItem 
+                                Header="Test2" />
+                        </MenuItem>
+        </Menu>
+    </Border>
+  </Design.PreviewWith>
+  
+     <Style Selector="Menu:pointerover">
+         <Setter Property="Cursor" Value="Hand" /> 
+     </Style> 
+
+    <Style Selector="Menu:disabled">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Opacity" Value="0.3" />
+    </Style>
+
+     <Style Selector="Menu > AccessText">
+        <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource NormalFontSize}" /> 
+    </Style> 
+</Styles>

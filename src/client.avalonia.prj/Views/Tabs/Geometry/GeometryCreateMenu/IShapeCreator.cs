@@ -1,6 +1,6 @@
 ﻿using Client.Avalonia.Views.Geometry.Shapes;
 
-namespace Client.Avalonia.Views
+namespace Client.Avalonia.Views.Geometry
 {
     public interface IShapeCreator
     {

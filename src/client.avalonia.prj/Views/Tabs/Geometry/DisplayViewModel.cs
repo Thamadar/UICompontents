@@ -12,7 +12,7 @@ using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
 
-namespace Client.Avalonia.Views
+namespace Client.Avalonia.Views.Geometry
 {
     public class DisplayViewModel : ViewModelBase
     {

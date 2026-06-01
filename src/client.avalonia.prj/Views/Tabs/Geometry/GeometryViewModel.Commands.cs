@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Client.Avalonia.Views
+namespace Client.Avalonia.Views.Geometry
 {
     public sealed partial class GeometryViewModel
     {

@@ -4,7 +4,7 @@ using Lib.Avalonia;
 using Lib.Avalonia.Extensions;
 using ReactiveUI;
 
-namespace Client.Avalonia.Views 
+namespace Client.Avalonia.Views.Geometry
 {
     public class RectMenuEditViewModel : ViewModelBase, IShapeCreator
     {

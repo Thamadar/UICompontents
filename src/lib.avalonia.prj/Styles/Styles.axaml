@@ -17,6 +17,13 @@
 
     <StyleInclude
             Source="avares://lib.avalonia/Styles/RectangleColorPickerControl.axaml" />
+     <StyleInclude
+            Source="avares://lib.avalonia/Styles/CustomContextMenu.axaml" />
+     <StyleInclude
+            Source="avares://lib.avalonia/Styles/CustomMenuItem.axaml" />
+
+    <StyleInclude
+            Source="avares://lib.avalonia/Styles/Separator.axaml" />
     <StyleInclude
             Source="avares://lib.avalonia/Styles/Slider.axaml" />
     <StyleInclude

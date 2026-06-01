@@ -42,11 +42,11 @@
         <Setter Property="FontWeight" Value="SemiLight"/>
         <Setter Property="Padding"    Value="16,2,16,3"/>
         <Setter Property="Background" Value="transparent" />
-        <Setter Property="BorderBrush" Value="{StaticResource PrimaryBlue}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource PrimaryGray}"/>
         <Setter Property="Margin"     Value="0 0 0 0" />
         <Setter Property="Height" Value="24" />
         <Setter Property="MinWidth" Value="120" />
-        <Setter Property="Foreground" Value="#52585a" />
+        <Setter Property="Foreground" Value="{StaticResource PrimaryWhite}" />
         <Setter Property="CornerRadius"     Value="4" />
         <Setter Property="HorizontalContentAlignment"     Value="Center" />
         <Setter Property="BorderThickness"     Value="1" />
@@ -75,8 +75,8 @@
 
         <Style Selector="^:checked">
             <Setter Property="Cursor" Value="Arrow"/>
-            <Setter Property="Background" Value="{StaticResource PrimaryBlue}"/>
-            <Setter Property="BorderBrush" Value="{StaticResource PrimaryBlue}"/>
+            <Setter Property="Background" Value="{StaticResource PrimaryGray}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PrimaryGray}"/>
             <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
                 <Setter Property="Foreground" Value="White" />
             </Style>
@@ -101,7 +101,7 @@
          <Style Selector="^.menu">
             <Setter Property="Height"       Value="32" />
             <Setter Property="Foreground"   Value="White" /> 
-            <Setter Property="Background"   Value="{StaticResource PrimaryBlue}" />
+            <Setter Property="Background"   Value="{StaticResource PrimaryGray}" />
             <Setter Property="CornerRadius" Value="4,4,0,0"/> 
              
             <Style Selector="^:checked"> 

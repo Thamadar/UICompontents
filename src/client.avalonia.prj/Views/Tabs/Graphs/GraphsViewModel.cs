@@ -1,5 +1,6 @@
 ﻿using Client.Avalonia.Services;
 using Client.Avalonia.Services.Interfaces;
+using Client.Avalonia.Views.Geometry;
 using Lib.Avalonia;
 using Lib.Avalonia.Helpers;
 using ReactiveUI;
@@ -9,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Client.Avalonia.Views
+namespace Client.Avalonia.Views.Graphs
 {
     /// <summary>
     /// VM, отвечающая за вкладку "Графики". 

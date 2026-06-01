@@ -4,11 +4,18 @@
     <Color x:Key="SliderTrackFillColor">#8eaac1</Color>
     <Color x:Key="SliderTrackFillPointerOverColor">#8eaac1</Color>
     <Color x:Key="SliderTrackFillPressedColor">#8eaac1</Color> 
+    
+    <Color x:Key="PrimaryGrayColor">#383838</Color>
+    <Color x:Key="PrimaryGrayLightColor">#454545</Color>
+    <Color x:Key="PrimaryGrayDarkColor">#262626</Color>
 
-    <Color x:Key="PrimaryGreenColor">#00645f</Color>
-    <Color x:Key="PrimaryBlueColor">#006cb5</Color>
-    <Color x:Key="PrimaryOrangeColor">#e85222</Color>
+    <Color x:Key="PrimaryDarkColor">#2e2e2e</Color>
 
+    <Color x:Key="PrimaryWhiteColor">#e1e1e1</Color>  
+
+    <Color x:Key="SeparatorMenuColor">#494949</Color>
+
+    <!-- Цвета слайдера -->
     <SolidColorBrush
     x:Key="SliderTrackFill"
     Color="{StaticResource SliderTrackFillColor}" /> 
@@ -18,15 +25,26 @@
     <SolidColorBrush
     x:Key="SliderTrackFillPressed"
     Color="{StaticResource SliderTrackFillPressedColor}" />
+     
+    <!-- Главные цвета приложения -->
+    <SolidColorBrush
+    x:Key="PrimaryGray"
+    Color="{StaticResource PrimaryGrayColor}" />
+    <SolidColorBrush
+    x:Key="PrimaryGrayLight"
+    Color="{StaticResource PrimaryGrayLightColor}" />
+    <SolidColorBrush
+    x:Key="PrimaryGrayDark"
+    Color="{StaticResource PrimaryGrayDarkColor}" />
+    <SolidColorBrush
+    x:Key="PrimaryDark"
+    Color="{StaticResource PrimaryDarkColor}" />
+    <SolidColorBrush
+    x:Key="PrimaryWhite"
+    Color="{StaticResource PrimaryWhiteColor}" />
 
-    <!-- Главные цвета айдентики компании -->
+    
     <SolidColorBrush
-    x:Key="PrimaryGreen"
-    Color="{StaticResource PrimaryGreenColor}" />
-    <SolidColorBrush
-    x:Key="PrimaryBlue"
-    Color="{StaticResource PrimaryBlueColor}" />
-    <SolidColorBrush
-    x:Key="PrimaryOrange"
-    Color="{StaticResource PrimaryOrangeColor}" />
+    x:Key="SeparatorMenu"
+    Color="{StaticResource SeparatorMenuColor}" />
 </ResourceDictionary>

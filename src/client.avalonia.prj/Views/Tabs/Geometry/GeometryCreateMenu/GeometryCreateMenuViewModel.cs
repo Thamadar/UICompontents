@@ -3,7 +3,7 @@ using Lib.Avalonia.Extensions;
 using ReactiveUI; 
 using System.Reactive.Linq; 
 
-namespace Client.Avalonia.Views
+namespace Client.Avalonia.Views.Geometry
 {
     public enum ShapeCreateEnum
     {

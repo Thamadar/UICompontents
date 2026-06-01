@@ -1,0 +1,44 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+             xmlns:uih="using:Lib.Avalonia.Helpers"
+             xmlns:uic="using:Lib.Avalonia.Controls"
+              
+             xmlns:local="using:Client.Avalonia.Views.Geometry"  
+             x:DataType="local:GeometryManagementPanelViewModel"
+
+             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="400"
+             x:Class="Client.Avalonia.Views.Geometry.GeometryManagementPanelView">
+   
+             
+    <Design.DataContext>
+        <local:GeometryManagementPanelViewModel />
+    </Design.DataContext>
+             
+    <StackPanel Orientation="Horizontal"
+    Background="{StaticResource PrimaryGray}"> 
+        <ItemsControl
+        ItemsSource="{Binding MenuItems}">
+           <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate x:DataType="uih:IMenuDataItem">
+                    <uic:CustomContextMenu Items="{Binding Childs}"
+                    Command="{Binding Command}"
+                    GroupName="GeometryManagementPanel">
+                        <uic:CustomContextMenu.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Text}"/>
+                            </StackPanel>
+                        </uic:CustomContextMenu.Content>
+                    </uic:CustomContextMenu>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl> 
+    </StackPanel>
+</UserControl>

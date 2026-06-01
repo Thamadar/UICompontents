@@ -3,13 +3,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 
-              xmlns:local="using:Client.Avalonia.Views" 
+              xmlns:local="using:Client.Avalonia.Views.Graphs" 
              xmlns:uic="using:Lib.Avalonia.Controls"
              xmlns:shapes="using:Client.Avalonia.Views.Geometry.Shapes" 
              x:DataType="local:GraphsViewModel"
 
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Client.Avalonia.Views.GraphsView">
+             x:Class="Client.Avalonia.Views.Graphs.GraphsView">
 
     <Design.DataContext>
         <local:GraphsViewModel />

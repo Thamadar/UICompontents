@@ -120,8 +120,9 @@ namespace Client.WPF.Services
         /// <inheritdoc/>
         public async Task SelectTabMenu(TabCategoryEnum tabCategoryEnum)
         {
-            var selectedTabMenu = _totalTabMenu.Items.FirstOrDefault(x => x.TabCategory.Equals(tabCategoryEnum));
+            var selectedTabMenu = _totalTabMenu.Items.FirstOrDefault(x => x.TabCategory == tabCategoryEnum);
 
+            //Кэш?
             if(selectedTabMenu != null && !(selectedTabMenu.Id == CurrentSelectedTabVM?.Id))
             {
                 if(CurrentSelectedTabVM != null)

@@ -3,14 +3,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              
-             xmlns:local="using:Client.Avalonia.Views"
+             xmlns:local="using:Client.Avalonia.Views.Geometry"
              xmlns:uic="using:Lib.Avalonia.Controls"
              xmlns:uiconv="using:Lib.Avalonia.Converters"
              xmlns:shapes="using:Client.Avalonia.Views.Geometry.Shapes"
              x:DataType="local:GeometryCreateMenuViewModel"
              
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="100"
-             x:Class="Client.Avalonia.Views.GeometryCreateMenuView">
+             x:Class="Client.Avalonia.Views.Geometry.GeometryCreateMenuView">
 
     <Design.DataContext>
         <local:GeometryCreateMenuViewModel />

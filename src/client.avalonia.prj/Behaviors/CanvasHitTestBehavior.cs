@@ -53,6 +53,7 @@ namespace Client.Avalonia.Behaviors
         {
             base.OnDetaching();
 
+            AssociatedObject?.RemoveHandler(Canvas.PointerPressedEvent, OnCanvasPointerPressed);
             _disposables.DisposeAll();
         }
 

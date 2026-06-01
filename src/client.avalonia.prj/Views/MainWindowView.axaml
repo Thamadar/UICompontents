@@ -6,6 +6,7 @@
         xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Xaml.Behaviors.Interactivity"
         xmlns:uibehaviors="using:Lib.Avalonia.Behaviors"    
         xmlns:views="using:Client.Avalonia.Views"
+        xmlns:behaviors="using:Client.Avalonia.Behaviors"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:DataType="views:MainWindowViewModel"
         x:Class="Client.Avalonia.MainWindowView"
@@ -26,21 +27,32 @@
     ColumnDefinitions="auto,*">
         <ItemsControl
         Grid.Column="0"
-        Background="{StaticResource PrimaryBlue}"
+        Background="{StaticResource PrimaryGray}"
         ItemsSource="{Binding TotalTabMenu}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Vertical"/>
                 </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel> 
+            </ItemsControl.ItemsPanel>    
             <ItemsControl.DataTemplates>
                 <DataTemplate 
                     x:DataType="views:ITabMenu">
-                    <RadioButton  
-                    IsChecked="{Binding IsSelected}"
-                    Content="{Binding DisplayName}"
-                    Classes="tab"
-                    GroupName="Tabs"/>
+                    <Grid> 
+
+                        <RadioButton  
+                        IsChecked="{Binding IsSelected}"
+                        Content="{Binding DisplayName}"
+                        Classes="tab"
+                        GroupName="Tabs"/> 
+                         
+                        <Separator 
+                        Classes="default menu" 
+                        VerticalAlignment="Bottom"> 
+                            <i:Interaction.Behaviors>
+                                <behaviors:HideBottomSeparatorBehavior/>
+                            </i:Interaction.Behaviors>
+                        </Separator>
+                    </Grid>
                 </DataTemplate>
             </ItemsControl.DataTemplates>
         </ItemsControl>  
