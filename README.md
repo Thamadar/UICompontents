@@ -11,10 +11,12 @@
 - Ctrl + Y (восстановление действия) <br>
 - Ctrl + J (дублировать элемент). <br> 
 <br>
+
 ![](https://github.com/Thamadar/UICompontents/blob/main/preview_2.0.gif) <br>
 Свежая версия. ВНИМАНИЕ: данная свежая версия лишь распространяется пока только на клиент Avalonia, и также ещё подлежит модифицированию. <br>
 Позже будет обновлен и клиент на WPF. <br>
 <br>
+
 ![](https://github.com/Thamadar/UICompontents/blob/main/preview.gif) <br>
 Старая версия. Присутствует на WPF.
 P.S. горячая клавиша удаления элемента во вкладке Граф. - Delete.
