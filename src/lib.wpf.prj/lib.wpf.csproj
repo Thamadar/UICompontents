@@ -11,7 +11,8 @@
 
   <ItemGroup>
       <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
-      <PackageReference Include="ReactiveUI" Version="20.1.63" /> 
+      <PackageReference Include="ReactiveUI" Version="20.1.63" />
+      <PackageReference Include="ReactiveUI.Wpf" Version="20.1.63" />
   </ItemGroup>
 
   <ItemGroup>

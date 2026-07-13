@@ -11,6 +11,8 @@
             Source="../Resources/Icons/GlobalIcons.xaml" />
 
         <ResourceDictionary
+            Source="RectangleColorPickerControl.xaml" />
+        <ResourceDictionary
             Source="Button.xaml" />
         <ResourceDictionary
             Source="Canvas.xaml" />

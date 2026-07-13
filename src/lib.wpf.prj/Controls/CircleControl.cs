@@ -15,13 +15,7 @@ namespace Lib.WPF.Controls
     public class CircleControl : Control
     { 
         public static readonly DependencyProperty FillProperty =
-            DependencyProperty.Register(nameof(Fill), typeof(Brush), typeof(CircleControl), new PropertyMetadata(Brushes.Transparent, OnRenderPropertyChanged));
-
-        //public static readonly DependencyProperty BorderBrushProperty =
-        //    DependencyProperty.Register(nameof(BorderBrush), typeof(Brush), typeof(CircleControl), new PropertyMetadata(Brushes.Red, OnRenderPropertyChanged));
-
-        //public static readonly DependencyProperty BorderThicknessProperty =
-        //    DependencyProperty.Register(nameof(BorderThickness), typeof(double), typeof(CircleControl), new PropertyMetadata(Brushes.Blue, OnRenderPropertyChanged));
+            DependencyProperty.Register(nameof(Fill), typeof(Brush), typeof(CircleControl), new PropertyMetadata(Brushes.Transparent, OnRenderPropertyChanged)); 
 
         public static readonly DependencyProperty RadiusProperty =
             DependencyProperty.Register(nameof(Radius), typeof(double), typeof(CircleControl), new PropertyMetadata(20.0, OnRenderPropertyChanged));
@@ -36,25 +30,7 @@ namespace Lib.WPF.Controls
         {
             get => (Brush)GetValue(FillProperty);
             set => SetValue(FillProperty, value);
-        }
-
-        ///// <summary>
-        ///// Заливка границы окружности.
-        ///// </summary>
-        //public Brush BorderBrush
-        //{
-        //    get => (Brush)GetValue(BorderBrushProperty);
-        //    set => SetValue(BorderBrushProperty, value);
-        //}
-
-        ///// <summary>
-        ///// Толщина границы окружности.
-        ///// </summary>
-        //public double BorderThickness
-        //{
-        //    get => (double)GetValue(BorderThicknessProperty);
-        //    set => SetValue(BorderThicknessProperty, value);
-        //}
+        } 
 
         /// <summary>
         /// Радиус окружности.
