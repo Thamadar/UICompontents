@@ -84,8 +84,7 @@ public static class DialogSystem
 	}
 
 	public static void SetApplicationLifetime(IApplicationLifetime applicationLifetime) => _applicationLifetime = applicationLifetime;
-	   
-
+	    
 	/// <summary>
 	/// Затменить текущее диалоговое окно IDialog.
 	/// </summary> 

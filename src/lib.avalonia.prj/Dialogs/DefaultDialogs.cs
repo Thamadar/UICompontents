@@ -8,35 +8,35 @@ namespace Lib.Avalonia.Services.Dialogs;
 /// </summary>
 public class DefaultDialogs : ViewModelBase
 {
-	#region Fields  
+    #region Fields  
 
-	private IDialog? _messageBox;
+    private IDialog? _messageBox; 
 
-	#endregion Fields
-	 
-	#region Properties 
+    #endregion Fields
 
-	/// <summary>
-	/// Экземпляр диалогового окна MessageBox.
-	/// </summary>
-	public IDialog? MessageBox
+    #region Properties 
+
+    /// <summary>
+    /// Экземпляр диалоговой панели MessageBox.
+    /// </summary>
+    public IDialog? MessageBox
 	{
 		get => _messageBox;
 		set => this.RaiseAndSetIfChanged(ref _messageBox, value);
-	}
+    } 
 
-	#endregion Properties
+    #endregion Properties
 
-	#region Constructors
+    #region Constructors
 
-	/// <summary>
-	/// Хранилище базовых диалоговых окон IDialog.
-	/// </summary>
-	public DefaultDialogs()
+    /// <summary>
+    /// Хранилище базовых диалоговых окон IDialog.
+    /// </summary>
+    public DefaultDialogs()
 	{
-		MessageBox = new MessageBoxViewModel();
+		MessageBox = new MessageBoxViewModel(); 
 
-		DialogSystem.MessageBoxObserve
+        DialogSystem.MessageBoxObserve
 			.BindTo(this, x => x.MessageBox);
 	}
 

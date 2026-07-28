@@ -12,7 +12,11 @@
         /// <summary>
         /// Графический редактор.
         /// </summary>
-        GraphicEditor
+        GraphicEditor,
+        /// <summary>
+        /// Планировщик задач.
+        /// </summary>
+        Scheduler
     }
 
     /// <summary>

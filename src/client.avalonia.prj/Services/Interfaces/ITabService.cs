@@ -26,6 +26,10 @@ namespace Client.Avalonia.Services.Interfaces
         /// </summary>
         IObservable<ITabVM?> CurrentSelectedTabVMObservable { get; }
 
+        /// <summary>
+        /// Получение списка горячих клавиш текущей выбранной VM-вкладки.
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<IHotKey> GetCurrentTabVMHotKeys();
 
         /// <summary>

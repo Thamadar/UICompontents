@@ -14,7 +14,15 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources> 
-
+    
+    <StyleInclude
+           Source="avares://lib.avalonia/Styles/SchedulerControl.axaml" />
+    <StyleInclude
+           Source="avares://lib.avalonia/Styles/SchedulerItemControl.axaml" />
+    <StyleInclude
+           Source="avares://lib.avalonia/Styles/SchedulerColumnHeader.axaml" />
+    <StyleInclude
+           Source="avares://lib.avalonia/Styles/SchedulerRowHeader.axaml" />
     <StyleInclude
             Source="avares://lib.avalonia/Styles/RectangleColorPickerControl.axaml" />
     <StyleInclude

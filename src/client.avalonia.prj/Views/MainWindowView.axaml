@@ -1,9 +1,13 @@
-﻿<Window xmlns="https://github.com/avaloniaui"
+﻿    <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:scheduler="using:Client.Avalonia.Views.Tabs.Scheduler"
         xmlns:uic="using:Lib.Avalonia.Controls"
+        
         xmlns:mb="using:Lib.Avalonia.Services.Dialogs.MessageBox"
+        xmlns:sd="using:Client.Avalonia.Views.Tabs.Scheduler.Dialogs"
+        
         xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Xaml.Behaviors.Interactivity"
         xmlns:uibehaviors="using:Lib.Avalonia.Behaviors"    
         xmlns:views="using:Client.Avalonia.Views"
@@ -46,8 +50,7 @@
             <ItemsControl.DataTemplates>
                 <DataTemplate 
                     x:DataType="views:ITabMenu">
-                    <Grid> 
-
+                    <Grid>  
                         <RadioButton  
                         IsChecked="{Binding IsSelected}"
                         Content="{Binding DisplayName}"
@@ -76,10 +79,17 @@
         IsActive="{Binding IsDialogsOpenedObserve^}"/>
 
         <mb:MessageBoxView 
-        Grid.Row="1"
-        Grid.ColumnSpan="10"
-        x:Name="MessageBox"
+            Grid.Row="1"
+            Grid.ColumnSpan="10"
+            x:Name="MessageBox"
             DataContext="{Binding DefaultDialogs.MessageBox}"
+            Placement="Center" PlacementAnchor="None"
+            PlacementGravity="None" IsOpen="{Binding IsOpen}"/>
+
+        <scheduler:SchedulerEventItemDialogView 
+            Grid.Row="1"
+            Grid.ColumnSpan="10" 
+            DataContext="{Binding SchedulerEventItemDialog}"
             Placement="Center" PlacementAnchor="None"
             PlacementGravity="None" IsOpen="{Binding IsOpen}"/>
     </Grid> 

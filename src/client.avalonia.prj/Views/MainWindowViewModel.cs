@@ -1,20 +1,17 @@
-﻿using Avalonia.Input;
-using Client.Avalonia.Services;
+﻿using Client.Avalonia.Services;
 using Client.Avalonia.Services.Interfaces;
-using Client.Avalonia.Views.Geometry.Shapes;
+using Client.Avalonia.Views.Tabs.Scheduler;
 using DynamicData;
+
 using Lib.Avalonia;
 using Lib.Avalonia.Extensions;
 using Lib.Avalonia.Helpers;
 using Lib.Avalonia.Services.Dialogs;
-using ReactiveUI;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reactive.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using ReactiveUI; 
+
+using System.Collections.ObjectModel; 
+using System.Reactive.Linq; 
 
 namespace Client.Avalonia.Views
 {
@@ -22,8 +19,9 @@ namespace Client.Avalonia.Views
     {
         private readonly ITabService _tabService;
         private ReadOnlyObservableCollection<TabMenu> _totalTabMenu = new(new());
-        private ITabVM _currentTabVM;
-         
+
+        private ITabVM _currentTabVM;  
+
         /// <summary>
         /// Горячие клавиши окна.
         /// </summary>
@@ -51,14 +49,20 @@ namespace Client.Avalonia.Views
         /// <summary>
         /// Хранилище базовых диалоговых панелей.
         /// </summary>
-        public DefaultDialogs DefaultDialogs { get; } = new();
+        public DefaultDialogs DefaultDialogs { get; } = new(); 
 
+        /// <summary>
+        /// VM диалоговой панели SchedulerEventItemDialog.
+        /// </summary>
+        public SchedulerEventItemDialogViewModel SchedulerEventItemDialog { get; }
 
         public MainWindowViewModel()
         {
             _tabService = TabService.Instance;
              
             IsDialogsOpenedObserve = DialogSystem.IsDialogsOpenedObserve;
+
+            SchedulerEventItemDialog = new SchedulerEventItemDialogViewModel();
 
             HotKeys = new ObservableCollection<IHotKey>();
              
@@ -72,9 +76,7 @@ namespace Client.Avalonia.Views
                 .ConnectToCurrentTabHotKeys()
                 .ObserveOn(RxApp.MainThreadScheduler)
                 .Subscribe(changeSet =>
-                {  
-                    //TO DO сделать грамотнее, нежели тянуть ещё раз метод
-
+                {   
                     LoadHotKeys(_tabService.GetCurrentTabVMHotKeys());
                 })
                 .AddTo(_disposables);
@@ -86,7 +88,7 @@ namespace Client.Avalonia.Views
                 .AddTo(_disposables); 
 
             _tabService.LoadTotalTabMenuData();
-            _tabService.SelectTabMenu(TabCategoryEnum.GraphicEditor); 
+            _tabService.SelectTabMenu(TabCategoryEnum.Scheduler); 
         }
 
         /// <summary>
@@ -100,9 +102,10 @@ namespace Client.Avalonia.Views
             HotKeys.AddRange(tabHotKeys);
         }
 
+        /// <inheritdoc/>
         private IEnumerable<IHotKey> DefaultWindowKeys()
         {
-            //базовые клавиши всего приложения. Например, f12 - О приложении.
+            //базовые клавиши всего приложения. Например, f12 - окно "О приложении".
             var defaultKeys = new List<IHotKey>()
             {
 

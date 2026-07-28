@@ -2,6 +2,7 @@
 using Client.Avalonia.Views;
 using Client.Avalonia.Views.Geometry;
 using Client.Avalonia.Views.Graphs;
+using Client.Avalonia.Views.Scheduler;
 using DynamicData;
 using DynamicData.Binding;
 using Lib.Avalonia.Extensions;
@@ -115,7 +116,8 @@ namespace Client.Avalonia.Services
             var tabMenu = new List<TabMenu>()
             {
                 new TabMenu("Графики", TabCategoryEnum.Graphs), 
-                new TabMenu("Графический редактор", TabCategoryEnum.GraphicEditor)
+                new TabMenu("Графический редактор", TabCategoryEnum.GraphicEditor),
+                new TabMenu("Планировщик задач", TabCategoryEnum.Scheduler),
             };
 
             _totalTabMenu.AddRange(tabMenu);
@@ -162,6 +164,7 @@ namespace Client.Avalonia.Services
             {
                 TabCategoryEnum.GraphicEditor => new GeometryViewModel(tabMenu.Id),
                 TabCategoryEnum.Graphs        => new GraphsViewModel(tabMenu.Id),
+                TabCategoryEnum.Scheduler     => new SchedulerViewModel(tabMenu.Id),
 
                 //TO DO: остальные типы...
                 _ => throw new ArgumentOutOfRangeException("Tab create invalid")

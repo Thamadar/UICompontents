@@ -14,6 +14,7 @@
 <br>
 
 ![](https://github.com/Thamadar/UICompontents/blob/main/preview_2.0.gif) <br>
+![](https://github.com/Thamadar/UICompontents/blob/main/scheduler_preview.gif) <br>
 Свежая версия. ВНИМАНИЕ: данная свежая версия лишь распространяется пока только на клиент Avalonia, и также ещё подлежит модифицированию. <br>
 Позже будет обновлен и клиент на WPF. <br>
 <br>

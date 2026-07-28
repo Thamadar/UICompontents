@@ -25,6 +25,8 @@
             Source="avares://lib.avalonia/Styles/Styles.axaml" />
             
     <StyleInclude
+            Source="avares://client.avalonia/Styles/SchedulerEventItemDialogView.axaml" />
+    <StyleInclude
             Source="avares://client.avalonia/Styles/MessageBoxView.axaml" />
     <StyleInclude
             Source="avares://client.avalonia/Styles/CustomContextMenu.axaml" />

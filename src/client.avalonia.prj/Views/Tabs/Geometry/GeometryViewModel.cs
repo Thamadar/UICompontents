@@ -1,13 +1,15 @@
 ﻿
 using Avalonia.Input;
+
 using Client.Avalonia.Services;
 using Client.Avalonia.Services.Interfaces;
 using Client.Avalonia.Views.Tabs.Geometry.Tools;
+
 using Lib.Avalonia;
 using Lib.Avalonia.Extensions;
 using Lib.Avalonia.Helpers;
-using ReactiveUI;
-using System.Reactive.Linq;
+
+using ReactiveUI; 
 
 namespace Client.Avalonia.Views.Geometry
 {

@@ -1,0 +1,73 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:uic="using:Lib.Avalonia.Controls"
+        xmlns:helpers="using:Lib.Avalonia.Controls.Helpers">
+  <Design.PreviewWith>
+    <Border Padding="20"
+    Background="Purple">
+        <uic:SchedulerItemControl 
+        Width="120"
+        Height="100"/>
+    </Border>
+  </Design.PreviewWith>
+
+  <Style Selector="uic|SchedulerItemControl">
+      <Setter Property="CornerRadius" Value="6"/> 
+      <Setter Property="Margin" Value="4,4,20,4"/>
+      <Setter Property="IsHitTestVisible" Value="True"/>
+      <Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="Template">
+          <ControlTemplate>
+              <Border x:Name="PART_MainBorder"
+              x:DataType="helpers:ISchedulerEventItem"
+              Background="{Binding Color}" 
+              BorderThickness="0" 
+              BorderBrush="{TemplateBinding BorderBrush}"
+              CornerRadius="{TemplateBinding CornerRadius}"
+              ToolTip.Tip="{Binding #PART_NameTextBlock.Text}">
+                  <Grid RowDefinitions="auto,*">
+                    <TextBlock
+                    Grid.Row="0"
+                    x:Name="PART_NameTextBlock"
+                    Classes="scheduler name" 
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    TextTrimming="CharacterEllipsis"
+                    TextWrapping="Wrap"
+                    MinHeight="18"
+                    MaxHeight="60"  
+                    Text="{Binding Name}"/>    
+
+                    <StackPanel 
+                    Grid.Row="1"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Top">
+                         <TextBlock  
+                            Classes="scheduler time"   
+                            Margin="0,-7,0,0">  
+                                <Run> 
+                                    <Run.Text>
+                                        <Binding Path="StartDate" Mode="OneWay" StringFormat="{}{0:HH:mm}" />
+                                    </Run.Text>
+                                </Run>
+                                <Run Text="-"/>
+                                <Run> 
+                                    <Run.Text>
+                                        <Binding Path="EndDate" Mode="OneWay" StringFormat="{}{0:HH:mm}" />
+                                    </Run.Text>
+                                </Run>
+                         </TextBlock>
+                    </StackPanel>
+                  </Grid>
+              </Border>
+          </ControlTemplate>
+      </Setter>
+
+      <Style Selector="^:selected">
+        <Style Selector="^ /template/ Border#PART_MainBorder">
+            <Setter Property="BorderThickness" Value="1"/> 
+            <Setter Property="BorderBrush"     Value="#7fb1ef"/> 
+        </Style>
+      </Style>
+  </Style> 
+</Styles>

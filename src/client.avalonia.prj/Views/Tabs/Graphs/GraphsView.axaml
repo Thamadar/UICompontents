@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 
               xmlns:local="using:Client.Avalonia.Views.Graphs" 
-             xmlns:uic="using:Lib.Avalonia.Controls"
-             xmlns:shapes="using:Client.Avalonia.Views.Geometry.Shapes" 
+             xmlns:uic="using:Lib.Avalonia.Controls" 
              x:DataType="local:GraphsViewModel"
 
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"

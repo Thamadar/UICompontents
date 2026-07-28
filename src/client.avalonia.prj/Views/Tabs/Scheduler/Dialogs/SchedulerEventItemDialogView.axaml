@@ -1,0 +1,57 @@
+﻿<c:PopupControl
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="using:Lib.Avalonia.Controls" xmlns:conv="using:Lib.Avalonia.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    
+    xmlns:sys="using:System"
+    xmlns:vm="using:Client.Avalonia.Views.Tabs.Scheduler" 
+
+    x:DataType="vm:SchedulerEventItemDialogViewModel" 
+    d:DesignHeight="310" d:DesignWidth="350"
+
+    IsHidden="{Binding IsHidden}"  
+    CloseCommand="{Binding OutCommand}"
+    IgnoreClickOut="{Binding IgnoreClickOut}"
+    IsOpen="True" Placement="Center" 
+
+    mc:Ignorable="d"
+    x:Class="Client.Avalonia.Views.Tabs.Scheduler.SchedulerEventItemDialogView">
+
+    <Design.DataContext>
+        <vm:SchedulerEventItemDialogViewModel />
+    </Design.DataContext>
+     
+    <c:PopupControl.Styles> 
+        <Style Selector="Grid.dark > c|DialogDarkControl">
+            <Setter Property="IsActive" Value="True" />
+        </Style>
+
+        <Style Selector="Grid.hidden">
+            <Setter Property="Opacity" Value="0" />
+            <Setter Property="IsHitTestVisible" Value="False" />
+        </Style>  
+    </c:PopupControl.Styles>
+
+    <Grid
+        Classes.dark="{Binding IsDark}"
+        Classes.hidden="{Binding IsHidden}">
+        <Border
+            Background="{DynamicResource MessageBoxBackground}"
+            CornerRadius="{DynamicResource MessageBoxCornerRadius}">
+            <Grid 
+                RowDefinitions="auto,*"
+                Focusable="True"> 
+                <ContentControl
+                    Name="PART_Header"
+                    Grid.Row="0" />
+                <ContentControl
+                    Name="PART_Container" 
+                    Grid.Row="1" />
+            </Grid>
+        </Border>
+
+        <c:DialogDarkControl />
+    </Grid>
+</c:PopupControl>

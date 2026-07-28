@@ -14,22 +14,22 @@
     <Style Selector="TextBlock"> 
         <Setter Property="FontFamily" Value="{StaticResource DefaultFontFamily}" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="{DynamicResource NormalFontSize}" /> 
+        <Setter Property="FontSize" Value="{StaticResource NormalFontSize}" /> 
     </Style> 
      
     <Style Selector="TextBlock.message-box-header">
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Margin" Value="0,8" />
-        <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}" />
+        <Setter Property="FontSize" Value="{StaticResource MediumFontSize}" />
         <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="Foreground" Value="{DynamicResource MessageBoxHeaderForeground}" />
+        <Setter Property="Foreground" Value="{StaticResource MessageBoxHeaderForeground}" />
     </Style>
 
     <Style Selector="TextBlock.message-box-message">
         <Setter Property="IsVisible" Value="{Binding Message.Length}" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Margin" Value="32,0,32,8" />
-        <Setter Property="Foreground" Value="{DynamicResource MessageBoxTextForeground}" />
+        <Setter Property="Foreground" Value="{StaticResource MessageBoxTextForeground}" />
         <Setter Property="TextAlignment" Value="Center" />
         <Setter Property="TextTrimming" Value="WordEllipsis" />
         <Setter Property="TextWrapping" Value="Wrap" />
@@ -53,7 +53,37 @@
         </Style>
         <Style Selector="^.medium">
             <Setter Property="FontWeight" Value="Regular" /> 
-            <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}" />
+            <Setter Property="FontSize" Value="{StaticResource MediumFontSize}" />
+        </Style> 
+    </Style>
+
+    <Style Selector="TextBlock.scheduler">  
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+           <Style Selector="^.row">
+            <Setter Property="Padding" Value="4,7,4,4" />
+            <Setter Property="FontWeight" Value="Regular" /> 
+            <Setter Property="Foreground" Value="{StaticResource PrimaryGraySmoke}" />
+            <Setter Property="FontSize" Value="{StaticResource MediumFontSize}" />
+        </Style>
+         <Style Selector="^.column">
+            <Setter Property="Padding" Value="7,7,4,4" />
+            <Setter Property="FontWeight" Value="SemiBold" /> 
+            <Setter Property="Foreground" Value="{StaticResource PrimaryGraySmoke}" />
+            <Setter Property="FontSize" Value="{StaticResource MediumFontSize}" />
+        </Style>
+        <Style Selector="^.name">
+            <Setter Property="Padding" Value="12,7,4,4" />
+            <Setter Property="FontWeight" Value="SemiBold" /> 
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="{StaticResource MediumFontSize}" />
+        </Style>
+        <Style Selector="^.time">
+            <Setter Property="Padding" Value="12,4,4,4" />
+            <Setter Property="FontWeight" Value="Regular" /> 
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Opacity" Value="0.8" />
+            <Setter Property="FontSize" Value="{StaticResource NormalFontSize}" />
         </Style>
     </Style>
 

@@ -2,6 +2,7 @@
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Client.Avalonia.Views;
+using Lib.Avalonia.Services.Dialogs;
 
 namespace Client.Avalonia
 {
@@ -14,6 +15,8 @@ namespace Client.Avalonia
 
         public override void OnFrameworkInitializationCompleted()
         {
+            DialogSystem.SetApplicationLifetime(ApplicationLifetime);
+
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
                 desktop.MainWindow = new MainWindowView()
