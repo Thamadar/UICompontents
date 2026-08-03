@@ -36,5 +36,15 @@ namespace Lib.Avalonia.Controls.Helpers
         /// Цвет события.
         /// </summary>
         IBrush Color { get; set; }
+
+        /// <summary>
+        /// Клонировать.
+        /// </summary> 
+        ISchedulerEventItem Clone();
+
+        /// <summary>
+        /// Обновление временного промежутка.
+        /// </summary> 
+        void ChangeDateTimeRange(DateTime start, DateTime end);
     }
 }

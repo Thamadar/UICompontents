@@ -66,13 +66,16 @@ namespace Lib.Avalonia.Controls
         AvaloniaProperty.Register<SchedulerControl, DateTime>(nameof(StartDate));
 
         public static readonly StyledProperty<double?> SchedulerHeightProperty =
-        AvaloniaProperty.Register<SchedulerControl, double?>(nameof(SchedulerHeight));
-
-        public static readonly StyledProperty<ICommand> ClickPanelCommandProperty =
-        AvaloniaProperty.Register<SchedulerControl, ICommand>(nameof(ClickPanelCommand));
+        AvaloniaProperty.Register<SchedulerControl, double?>(nameof(SchedulerHeight)); 
 
         public static readonly StyledProperty<ICommand> ClickSchedulerCommandProperty =
-        AvaloniaProperty.Register<SchedulerControl, ICommand>(nameof(ClickSchedulerCommand));
+        AvaloniaProperty.Register<SchedulerControl, ICommand>(nameof(ClickSchedulerCommand)); 
+
+        public static readonly StyledProperty<ICommand> CreateSchedulerEventItemCommandProperty =
+        AvaloniaProperty.Register<SchedulerItemControl, ICommand>(nameof(CreateSchedulerEventItemCommand));
+
+        public static readonly StyledProperty<ICommand> EditSchedulerEventItemCommandProperty =
+        AvaloniaProperty.Register<SchedulerItemControl, ICommand>(nameof(EditSchedulerEventItemCommand)); 
 
         /// <summary>
         /// Отслеживание коллекции объектов, хранящих информацию о событии в планировщике.
@@ -118,25 +121,35 @@ namespace Lib.Avalonia.Controls
         {
             get => GetValue(SchedulerHeightProperty);
             set => SetValue(SchedulerHeightProperty, value);
-        }
+        } 
 
         /// <summary>
-        /// Нажатие по холсту. Передает DateTime.
-        /// </summary>
-        public ICommand ClickPanelCommand
-        {
-            get => GetValue(ClickPanelCommandProperty);
-            set => SetValue(ClickPanelCommandProperty, value);
-        }
-
-        /// <summary>
-        /// Нажатие по элементу SchedulerItemControl. ПередаетISchedulerEventItem
+        /// Нажатие по элементу SchedulerItemControl. Передает ISchedulerEventItem.
         /// </summary>
         public ICommand ClickSchedulerCommand
         {
             get => GetValue(ClickSchedulerCommandProperty);
             set => SetValue(ClickSchedulerCommandProperty, value);
         }
+
+        /// <summary>
+        /// Вызов создания SchedulerEventItem. Передает DateRange.
+        /// </summary>
+        public ICommand CreateSchedulerEventItemCommand
+        {
+            get => GetValue(CreateSchedulerEventItemCommandProperty);
+            set => SetValue(CreateSchedulerEventItemCommandProperty, value);
+        }
+
+        /// <summary>
+        /// Вызов редактирования SchedulerEventItem. Передает DateRange.
+        /// </summary>
+        public ICommand EditSchedulerEventItemCommand
+        {
+            get => GetValue(EditSchedulerEventItemCommandProperty);
+            set => SetValue(EditSchedulerEventItemCommandProperty, value);
+        }
+
 
         #endregion
 
@@ -198,7 +211,11 @@ namespace Lib.Avalonia.Controls
         {
             if(schedulerContentPanelControl != null)
             {
-                var clickPanelBind = new Binding(nameof(ClickPanelCommand))
+                var createSchedulerEventItem = new Binding(nameof(CreateSchedulerEventItemCommand))
+                {
+                    Source = this
+                };
+                var editSchedulerEventItem = new Binding(nameof(EditSchedulerEventItemCommand))
                 {
                     Source = this
                 };
@@ -211,7 +228,8 @@ namespace Lib.Avalonia.Controls
                     Source = this
                 };
 
-                schedulerContentPanelControl.Bind(SchedulerContentPanelControl.ClickPanelCommandProperty, clickPanelBind);
+                schedulerContentPanelControl.Bind(SchedulerContentPanelControl.CreateSchedulerEventItemCommandProperty, createSchedulerEventItem);
+                schedulerContentPanelControl.Bind(SchedulerContentPanelControl.EditSchedulerEventItemCommandProperty, editSchedulerEventItem);
                 schedulerContentPanelControl.Bind(SchedulerContentPanelControl.ClickSchedulerCommandProperty, clickSchedulerBind);
                 schedulerContentPanelControl.Bind(SchedulerContentPanelControl.CurrentSelectedSchedulerEventItemProperty, currentSelectedSchedulerEvent);
 

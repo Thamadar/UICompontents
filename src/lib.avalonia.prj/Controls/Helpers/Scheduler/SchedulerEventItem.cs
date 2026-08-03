@@ -67,5 +67,25 @@ namespace Lib.Avalonia.Controls.Helpers
             Description = description;
             Color       = color;
         }
+         
+        /// <inheritdoc/>
+        public ISchedulerEventItem Clone()
+        {
+            return new SchedulerEventItem(
+                StartDate,
+                EndDate,
+                Name,
+                Description,
+                Color,
+                Id);
+        }
+
+        /// <inheritdoc/>
+        public void ChangeDateTimeRange(DateTime start, DateTime end)
+        {
+            StartDate = start;
+            EndDate   = end;
+        }
+
     }
 }

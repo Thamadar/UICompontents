@@ -8,15 +8,17 @@ namespace Client.Avalonia.Views.Scheduler
     {
         public sealed class SchedulerViewModelCommands
         {
-            public ICommand CreateEventPanelCommand { get; }
+            public ICommand CreateSchedulerEventItemCommand { get; }
+            public ICommand EditSchedulerEventItemCommand { get; } 
             public ICommand ClickSchedulerEventItemCommand { get; }
             public ICommand RemoveEventPanelCommand { get; } 
             //public ICommand OpenCreateEventPanelCommand { get; }
 
             public SchedulerViewModelCommands(SchedulerViewModel vm)
             {
-                CreateEventPanelCommand        = ReactiveCommand.Create<DateTime>(vm.OnCreateEventPanel);
-                ClickSchedulerEventItemCommand = ReactiveCommand.Create<ISchedulerEventItem>(vm.OnClickSchedulerEventItem);
+                CreateSchedulerEventItemCommand = ReactiveCommand.Create<SchedulerDateTimeRange>(vm.OnCreateEventPanel);
+                EditSchedulerEventItemCommand   = ReactiveCommand.Create<SchedulerDateTimeRange>(vm.OnChangeDateTimeRangeEventPanel);
+                ClickSchedulerEventItemCommand  = ReactiveCommand.Create<ISchedulerEventItem>(vm.OnClickSchedulerEventItem);
 
                 RemoveEventPanelCommand = ReactiveCommand.Create(vm.OnRemoveSelectedSchedulerEventItem);
             }
@@ -40,9 +42,17 @@ namespace Client.Avalonia.Views.Scheduler
         /// <summary>
         /// Создание нового события.
         /// </summary> 
-        private void OnCreateEventPanel(DateTime startDateTime)
+        private void OnCreateEventPanel(SchedulerDateTimeRange dateTimeRange)
         {
-            _schedulerService.AddSchedulerItem(startDateTime);
+            _schedulerService.AddSchedulerItem(dateTimeRange);
+        }
+
+        /// <summary>
+        /// Изменение StartDate и EndDate у существующего события.
+        /// </summary> 
+        private void OnChangeDateTimeRangeEventPanel(SchedulerDateTimeRange dateTimeRange)
+        {
+            _schedulerService.ChangeDateTimeRangeSchedulerItem(dateTimeRange);
         }
 
         /// <summary>

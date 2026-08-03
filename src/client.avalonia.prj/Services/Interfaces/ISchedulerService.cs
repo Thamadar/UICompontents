@@ -19,8 +19,14 @@ namespace Client.Avalonia.Services.Interfaces
         /// <summary>
         /// Добавить новое пустое событие.
         /// </summary>
-        /// <param name="startDateTime">дата-время начала события.</param>
-        void AddSchedulerItem(DateTime startDateTime);
+        /// <param name="dateTimeRange">промежуток дата-время события.</param>
+        void AddSchedulerItem(SchedulerDateTimeRange dateTimeRange);
+
+        /// <summary>
+        /// Изменение StartDate и EndDate у существующего события.
+        /// </summary>
+        /// <param name="dateTimeRange">промежуток дата-время события.</param>
+        void ChangeDateTimeRangeSchedulerItem(SchedulerDateTimeRange dateTimeRange);
 
         /// <summary>
         /// Удалить событие.

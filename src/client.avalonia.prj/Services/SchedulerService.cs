@@ -90,26 +90,37 @@ namespace Client.Avalonia.Services
         }
 
         /// <inheritdoc/>
-        public void AddSchedulerItem(DateTime startDateTime)
+        public void AddSchedulerItem(SchedulerDateTimeRange dateTimeRange)
         {
             //TO DO: сделать открывающуюся панель редактирования для нового события, нежели просто добавлять пустые данные.
             //P.S. просто добавляются данные, так как для демонстрации UI/UX вполне достаточно.
 
-            var currentCount = _totalSchedulerEventItems.Count + 1;
-            var endTime      = startDateTime.AddHours(1);
+            var currentCount = _totalSchedulerEventItems.Count + 1; 
             var rnd = new Random();
             var rndBrush = DefaultBrushes.ElementAt(rnd.Next(DefaultBrushes.Count()));
 
-            var newSchedulerItem = new SchedulerEventItem(startDateTime, endTime, $"Событие {currentCount}", "какое-то описание", rndBrush);
+            var newSchedulerItem = new SchedulerEventItem(dateTimeRange.Start, dateTimeRange.End, $"Событие {currentCount}", "какое-то описание", rndBrush);
              
             if(_totalSchedulerEventItems.Items.Any(x => x.StartDate == newSchedulerItem.StartDate && x.EndDate == newSchedulerItem.EndDate))
             {
-                //Если есть совпадение по началу даты и концу даты - ничего не создавать, ибо наслоение будет просто-напросто.
+                //Пока что идут наслоения, поэтому убран такой сценарий. TO DO: В будущем сделать в SchedulerControl, а именно в панеле, чтобы
+                //в таком случае создавался визуально Stack, отображающий все события в том же промежутке.
                 return;
             }
 
             _totalSchedulerEventItems.Add(newSchedulerItem);
             SelectSchedulerItem(newSchedulerItem);
+        }
+
+        /// <inheritdoc/>
+        public void ChangeDateTimeRangeSchedulerItem(SchedulerDateTimeRange dateTimeRange)
+        {
+            var changeItem = _totalSchedulerEventItems.Items.FirstOrDefault(x => x.Id == dateTimeRange.ItemId);
+            if(changeItem != null)
+            {
+                changeItem.ChangeDateTimeRange(dateTimeRange.Start, dateTimeRange.End);
+                SelectSchedulerItem(changeItem);
+            } 
         }
 
         /// <inheritdoc/>

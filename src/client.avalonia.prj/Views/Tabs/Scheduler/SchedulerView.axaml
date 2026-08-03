@@ -19,7 +19,8 @@
     SchedulerPeriod="Week"
     CurrentSelectedSchedulerEventItem="{Binding CurrentSelectedSchedulerEventItem}"
     ClickSchedulerCommand="{Binding Commands.ClickSchedulerEventItemCommand}"
-    ClickPanelCommand="{Binding Commands.CreateEventPanelCommand}"
+    EditSchedulerEventItemCommand="{Binding Commands.EditSchedulerEventItemCommand}"
+    CreateSchedulerEventItemCommand="{Binding Commands.CreateSchedulerEventItemCommand}"
     StartDate="{Binding StartDateTime}"
     SchedulerEventItemsObserve="{Binding SchedulerEventItemsObserve}"/>
 </UserControl>
